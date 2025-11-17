@@ -4,38 +4,38 @@
   <title>GuidanceX — Where Mastery Begins</title>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <link rel="stylesheet" href="/style.css">
-
   <style>
-    html, body {
-      height: 100%;
-      width: 100%;
+    * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-      font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
-      background: #121215;
-      color: #f7f7fa;
-      scroll-behavior: smooth;
     }
-    body { min-height:100vh; width:100vw; }
 
-    /* NAVBAR */
+    html, body {
+      width: 100%;
+      height: 100%;
+      background: #121215;
+      font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+      color: #f7f7fa;
+    }
+
+    /* ---------------- NAVBAR ---------------- */
     .nav-bar {
-      width: 100vw;
+      width: 100%;
       padding: 0 60px;
       height: 75px;
       background: rgba(20,20,24,0.93);
-      backdrop-filter: blur(5px);
+      backdrop-filter: blur(2px);
       display: flex;
       align-items: center;
       justify-content: space-between;
       position: fixed;
-      top:0; left:0;
-      z-index:999;
+      top: 0;
+      left: 0;
+      z-index: 999;
       border-bottom: 1px solid #232326;
     }
 
-    /* LOGO (UNCHANGED) */
     .nav-logo {
       display: flex;
       align-items: center;
@@ -43,142 +43,205 @@
       font-weight: bold;
       font-size: 1.45em;
       color: #fff;
-      letter-spacing: 0.055em;
-    }
-    .nav-logo svg {
-      width:44px;
-      height:44px;
-      background:#232326;
-      border-radius:13px;
-      box-shadow: 0 5px 22px #ff770033;
-      padding: 4px;
     }
 
-    /* LINKS */
+    .nav-logo svg {
+      width: 44px;
+      height: 44px;
+      background: #232326;
+      border-radius: 13px;
+      padding: 4px;
+      box-shadow: 0 5px 22px #ff770033;
+    }
+
     .nav-links {
       display: flex;
       gap: 34px;
+      margin-left: 45px;
     }
+
     .nav-link {
       color: #eee;
       font-size: 1.11em;
+      font-weight: 500;
+      padding: 4px 18px;
       text-decoration: none;
       border-radius: 10px;
-      padding: 4px 18px;
-      transition: .2s;
+      transition: 0.18s;
     }
-    .nav-link:hover { background:#232326; color:#ff7700; }
+
+    .nav-link:hover {
+      background: #232326;
+      color: #ff7700;
+    }
 
     .nav-actions {
       display: flex;
       gap: 10px;
     }
+
     .nav-btn {
-      background: linear-gradient(90deg, #ff7700 60%, #f77f3c);
-      color: white;
-      padding: 9px 32px;
+      background: linear-gradient(90deg, #ff7700 60%, #f77f3c 100%);
+      color: #fff;
       border-radius: 17px;
+      padding: 9px 32px;
+      font-weight: 700;
+      font-size: 1.12em;
       border: none;
-      font-weight:700;
-      cursor:pointer;
-    }
-    .nav-btn.secondary { background:#232326; color:#ff7700; border:2px solid #ff7700; }
-    .nav-btn.secondary:hover { background:#ff7700; color:white; }
-
-    /* HAMBURGER (MOBILE ONLY) */
-    .hamburger {
-      display:none;
-      flex-direction:column;
-      gap:5px;
-      cursor:pointer;
-    }
-    .hamburger div {
-      width:26px;
-      height:3px;
-      background:white;
-      border-radius:3px;
+      cursor: pointer;
+      transition: 0.19s;
+      box-shadow: 0 2px 12px #18081844;
     }
 
-    /* FULLSCREEN BLUR MENU */
-    .mobile-menu {
-      position: fixed;
-      top:0; left:0;
-      width:100vw; height:100vh;
-      backdrop-filter: blur(18px);
-      background: rgba(15,15,18,0.65);
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      justify-content:center;
-      gap:35px;
-      opacity:0;
-      pointer-events:none;
-      transition:opacity .3s;
-      z-index:998;
+    .nav-btn.secondary {
+      background: #232326;
+      color: #ff7700;
+      border: 2px solid #ff7700;
     }
-    .mobile-menu.show {
-      opacity:1;
-      pointer-events:all;
-    }
-    .mobile-link {
-      color:white;
-      font-size:2em;
-      text-decoration:none;
-      font-weight:600;
-      transition:0.2s;
-    }
-    .mobile-link:hover { color:#ff7700; }
 
-    /* HERO */
+    .nav-btn.secondary:hover {
+      background: #ff7700;
+      color: #fff;
+    }
+
+    /* ---------------- HERO ---------------- */
     .hero {
-      width:100vw;
-      min-height:100vh;
-      padding-top:75px;
+      width: 100%;
+      min-height: 100vh;
+      padding-top: 75px;
       background: radial-gradient(90% 70% at 60% 20%, #232326 12%, #121215 80%);
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      justify-content:center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
 
     .hero-core {
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      width:96vw; max-width:1180px;
-      gap:72px;
-      padding:64px 0;
+      width: 96%;
+      max-width: 1180px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 72px;
+      padding: 64px 0;
     }
 
-    .hero-info { max-width:530px; }
-    .hero-title { font-size:3.3em; font-weight:700; margin-bottom:22px; }
-    .hero-desc { font-size:1.31em; margin-bottom:36px; color:#e3e3ea; }
+    .hero-info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      max-width: 530px;
+    }
+
+    .hero-title {
+      font-size: 3.33em;
+      font-weight: 700;
+      line-height: 1.11;
+      color: #fff;
+      margin-bottom: 22px;
+      text-shadow: 0 2px 40px #18181855;
+    }
+
+    .hero-desc {
+      font-size: 1.31em;
+      color: #e3e3ea;
+      margin-bottom: 36px;
+      line-height: 1.47;
+      font-weight: 500;
+    }
+
     .hero-action {
-      background:linear-gradient(90deg,#ff7700,#f77f3c);
-      padding:18px 44px;
-      color:white;
-      border-radius:17px;
-      font-weight:700;
-      border:none;
-      cursor:pointer;
+      font-size: 1.15em;
+      background: linear-gradient(90deg,#ff7700,#f77f3c);
+      color: #fff;
+      border: none;
+      border-radius: 17px;
+      padding: 18px 44px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 2px 24px #f77f3c33;
+    }
+
+    .hero-logo {
+      min-width: 340px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     .hero-logo svg {
-      width:370px; height:290px;
-      border-radius:40px;
-      box-shadow:0 8px 54px #ff77003b;
+      width: 360px;
+      height: auto;
+      max-width: 100%;
+      border-radius: 40px;
+      box-shadow: 0 8px 54px #ff77003b, 0 0 22px #222;
     }
 
-    /* RESPONSIVE */
-    @media (max-width:950px) {
-      .nav-links, .nav-actions { display:none; }
-      .hamburger { display:flex; }
-
-      .hero-core { flex-direction:column; text-align:center; gap:30px; }
-      .hero-title { font-size:2.2em; }
-      .hero-desc { font-size:1.1em; }
-      .hero-logo svg { width:85vw; max-width:330px; height:170px; }
+    .hero-app-note {
+      color: #fcfcfe;
+      opacity: .75;
+      margin-top: 32px;
+      font-size: 1.03em;
+      text-align: center;
     }
+
+    /* ---------------- RESPONSIVE ---------------- */
+    @media (max-width: 1050px) {
+      .nav-links {
+        gap: 22px;
+      }
+      .nav-btn { padding: 8px 26px; }
+    }
+
+    @media (max-width: 900px) {
+      .nav-bar {
+        padding: 0 25px;
+      }
+
+      .hero-core {
+        flex-direction: column;
+        text-align: center;
+        gap: 45px;
+        padding: 30px 0;
+      }
+
+      .hero-info {
+        align-items: center;
+      }
+
+      .hero-title {
+        font-size: 2.35em;
+      }
+
+      .hero-desc {
+        font-size: 1.15em;
+        max-width: 92%;
+      }
+
+      .hero-logo svg {
+        width: 85vw;
+        max-width: 330px;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .nav-links,
+      .nav-actions {
+        display: none;
+      }
+
+      .nav-bar {
+        justify-content: space-between;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .hero-title { font-size: 1.9em; }
+      .hero-desc { font-size: 1em; }
+      .hero-action { padding: 14px 34px; }
+    }
+
   </style>
 </head>
 
@@ -187,9 +250,7 @@
   <!-- NAVBAR -->
   <nav class="nav-bar">
 
-    <!-- LOGO (LEFT) -->
     <div class="nav-logo">
-      <!-- ⭐ YOUR LOGO NEVER CHANGED ⭐ -->
       <svg viewBox="0 0 55 39">
         <rect x="12" y="8" width="28" height="8" rx="3.2" fill="#ff7700" stroke="#fff" stroke-width="2"/>
         <rect x="16.5" y="16" width="19" height="9" rx="3.2" fill="#232326" stroke="#ff7700" stroke-width="1.5"/>
@@ -199,7 +260,6 @@
       GuidanceX
     </div>
 
-    <!-- DESKTOP LINKS -->
     <div class="nav-links">
       <a href="/" class="nav-link">Home</a>
       <a href="/login" class="nav-link">Courses</a>
@@ -207,29 +267,13 @@
       <a href="/about" class="nav-link">About</a>
     </div>
 
-    <!-- DESKTOP BUTTONS -->
     <div class="nav-actions">
       <a href="/login"><button class="nav-btn secondary">Log In</button></a>
       <a href="/login"><button class="nav-btn">Get Started</button></a>
     </div>
-
-    <!-- MOBILE HAMBURGER -->
-    <div class="hamburger" onclick="toggleMenu()">
-      <div></div><div></div><div></div>
-    </div>
   </nav>
 
-  <!-- FULLSCREEN MOBILE MENU -->
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="/" class="mobile-link">Home</a>
-    <a href="/login" class="mobile-link">Courses</a>
-    <a href="#" class="mobile-link">Pricing</a>
-    <a href="/about" class="mobile-link">About</a>
-    <a href="/login" class="mobile-link" style="color:#ff7700;">Login</a>
-  </div>
-
-
-  <!-- HERO SECTION (UNCHANGED) -->
+  <!-- HERO SECTION -->
   <main class="hero">
     <div class="hero-core">
 
@@ -241,31 +285,40 @@
 
         <div class="hero-desc">
           Discover expert mentorship at its finest.  
-          GuidanceX is your all-in-one learning hub for business, trading, design, and personal growth.
+          GuidanceX is your all-in-one learning hub for business, trading, design, and personal growth — built for those chasing true mastery.
         </div>
 
         <a href="/login"><button class="hero-action">Explore Courses</button></a>
       </section>
 
       <section class="hero-logo">
-        <svg viewBox="0 0 370 290">
-          <!-- Your exact SVG kept -->
-          <ellipse cx="230" cy="105" rx="40" ry="25" fill="#fff"/>
+        <!-- your SVG unchanged -->
+        <svg viewBox="0 0 370 290" fill="none">
+          <defs>
+            <radialGradient id="g1" cx=".5" cy=".5" r="1">
+              <stop offset="0%" stop-color="#222326"/>
+              <stop offset="60%" stop-color="#232326"/>
+              <stop offset="100%" stop-color="#ff7700" />
+            </radialGradient>
+          </defs>
+
+          <path d="M90 210 q88 -53 120 -81 q90 24 175 21 q-88 54 -183 38 q-89 24 -112 22 z" fill="url(#g1)" opacity="0.7"/>
+          <path d="M110 178 q76 -40 110 -70 q112 31 150 15 q-21 31 -120 29 q-55 18 -140 12 z" fill="#ff7700" opacity=".36"/>
+          <path d="M150 158 q61 -23 99 -42 q124 42 120 31 q-21 15 -119 14 q-66 11 -100 13 z" fill="#fff" opacity=".39"/>
+
+          <ellipse cx="230" cy="105" rx="40" ry="25" fill="#fff" stroke="#ff7700" stroke-width="7"/>
+          <ellipse cx="230" cy="105" rx="16" ry="11" fill="#232326" stroke="#ff7700" stroke-width="2"/>
+          <ellipse cx="230" cy="105" rx="5" ry="4" fill="#fff"/>
         </svg>
       </section>
 
     </div>
 
     <div class="hero-app-note">
-      <span style="color:#ff7700;">GuidanceX</span> – Premium learning crafted for SRM and ambitious creators.
+      <span style="color:#ff7700;">GuidanceX</span> — Premium learning crafted for SRM and ambitious creators.
     </div>
-  </main>
 
-  <script>
-    function toggleMenu(){
-      document.getElementById("mobileMenu").classList.toggle("show");
-    }
-  </script>
+  </main>
 
 </body>
 </html>
