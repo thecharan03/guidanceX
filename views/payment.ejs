@@ -202,10 +202,22 @@
           <span class="course-name"><%= course.name %></span>
           <span class="course-price">₹<%= course.price %></span>
         </div>
-        <img src="<%= course.image %>" alt="Course Image" class="course-image"/>
+        
+        <img 
+          src="<%= course.image || 'https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=1200' %>" 
+          alt="Course Image" 
+          class="course-image"
+/>
+
         <div class="expert-row">
-          <img src="<%= course.expertPhoto %>" alt="Expert" class="expert-photo" />
-          <span class="expert-name"><%= course.expertName %></span>
+  <img 
+    src="<%= course.expertPhoto || 'https://images.unsplash.com/photo-1595152772835-219674b2a8a6?q=80&w=500' %>" 
+    alt="Expert" 
+    class="expert-photo"
+  />
+  <span class="expert-name"><%= course.expertName %></span>
+</div>
+
         </div>
         <div class="course-desc"><%= course.description %></div>
         <div class="course-duration">Duration: <%= course.duration %> 78 days</div>
