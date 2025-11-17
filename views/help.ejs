@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Help Center | GuidanceX</title>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <style>
+    body {
+      background: #171930;
+      color: #f8f9fa;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .header-gradient {
+      background: linear-gradient(90deg, #222448 45%, #5686c5 90%);
+      padding: 72px 0 36px 0;
+      text-align: center;
+      color: #fff;
+    }
+    .header-gradient h1 {
+      font-size: 3rem;
+      font-weight: 900;
+      margin-bottom: 0.8rem;
+    }
+    .search-bar {
+      max-width: 540px;
+      margin: 0 auto;
+    }
+    .search-bar input {
+      border-radius: 16px;
+      padding: 1.2rem 1.3rem;
+      font-size: 1.3rem;
+      background: #222448;
+      border: none;
+      color: #fff;
+      margin-right: 0.6rem;
+    }
+    .search-bar input:focus {
+      background: #324777;
+      box-shadow: 0 0 10px #5686c5;
+      outline: none;
+    }
+    .search-bar .btn {
+      border-radius: 16px;
+      font-weight: 800;
+      background: #5686c5;
+      color: #fff;
+      padding: .98rem 1.8rem;
+      font-size: 1.18rem;
+    }
+    .nav-help {
+      background: #191a2b;
+      border-bottom: 2px solid #222448;
+      padding: 18px 0;
+    }
+    .nav-help .nav-link, .nav-help .dropdown-toggle {
+      color: #bdc2f7!important;
+      font-weight: 700;
+      font-size: 1.05rem;
+      margin-right: 2rem;
+      letter-spacing: 0.03em;
+    }
+    .nav-help .nav-link.active, .nav-help .nav-link:hover {
+      color: #5686c5!important;
+    }
+    .status-dot {
+      width: 12px; height: 12px; border-radius: 50%; display: inline-block;
+      background: #51cf66; margin-right:6px; vertical-align:middle;
+    }
+    .faq-section {
+      padding: 46px 0 36px 0;
+    }
+    .faq-header {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: #5686c5;
+      margin-bottom: 2.2rem;
+    }
+    .faq-list {
+      max-width: 800px;
+      margin: 0 auto;
+      background: #222448;
+      border-radius: 18px;
+      padding: 32px 42px;
+      box-shadow: 0 2px 30px #22244840;
+    }
+    .faq-list .question {
+      font-weight: 700;
+      font-size: 1.11rem;
+      margin-bottom: 0.8rem;
+      color: #fff;
+    }
+    .faq-list .answer {
+      color: #bbc7f3;
+      margin-bottom: 1.6rem;
+      margin-left: 1.2rem;
+      font-size: 1rem;
+    }
+    .contact-support {
+      position: fixed;
+      right: 28px;
+      bottom: 28px;
+      z-index: 100;
+      background: #5686c5;
+      color: #fff;
+      border-radius: 22px;
+      padding: 1.07rem 2.4rem 1.07rem 2.4rem;
+      font-weight: 700;
+      box-shadow: 0 5px 20px #5686c580;
+      font-size: 1.16rem;
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .contact-support:hover {
+      background: #445b95;
+      color: #fff;
+      box-shadow: 0 9px 30px #5686c5cc;
+    }
+    @media (max-width: 600px) {
+      .faq-list {padding: 18px 10px;}
+      .header-gradient h1 {font-size:2rem;}
+      .contact-support {padding:.6rem 1.1rem; font-size:1rem;}
+    }
+  </style>
+</head>
+<body>
+  <!-- Gradient Header -->
+  <div class="header-gradient">
+    <h1>How can we help?</h1>
+    <div class="search-bar d-flex justify-content-center mb-2">
+      <input type="text" class="form-control" placeholder="Search by keyword"/>
+      <button type="submit" class="btn">Search</button>
+    </div>
+    <div class="mt-2" style="font-size:1.08rem; letter-spacing:0.01em;">SEARCH OUR HELP CENTER</div>
+  </div>
+  <!-- Nav bar below gradient -->
+  <div class="nav-help d-flex justify-content-between align-items-center px-4">
+    <div class="d-flex align-items-center">
+      <a href="#" class="nav-link active"><i class="bi bi-house-door"></i> HOME</a>
+      <div class="dropdown">
+        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">CATEGORIES</a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#">Payments</a></li>
+          <li><a class="dropdown-item" href="#">Account</a></li>
+          <li><a class="dropdown-item" href="#">Courses</a></li>
+          <li><a class="dropdown-item" href="#">Site Features</a></li>
+        </ul>
+      </div>
+      <a href="#" class="nav-link">TRAINING VIDEOS</a>
+      <a href="#" class="nav-link">CONTACT SUPPORT</a>
+    </div>
+    <div style="font-size:1.05rem;">
+      APP STATUS: <span class="status-dot"></span>ONLINE
+    </div>
+  </div>
+
+  <!-- FAQs Section -->
+  <div class="faq-section">
+    <div class="faq-header text-center">Top Questions</div>
+    <div class="faq-list">
+      <div class="question">How do I reset my password?</div>
+      <div class="answer">Go to Settings &gt; Account and click on 'Reset Password'. Enter your registered email address and follow the instructions sent to your inbox.</div>
+
+      <div class="question">Where can I view my enrolled courses?</div>
+      <div class="answer">Navigating to 'Courses' in your dashboard will show all your active and completed course registrations.</div>
+
+      <div class="question">How do I get in touch with an expert?</div>
+      <div class="answer">Use the 'Contact Support' link at the top or the live support bubble below to connect quickly.</div>
+    </div>
+  </div>
+
+  <!-- Fixed support button -->
+  <a href="/contact-support" class="contact-support">
+    <i class="bi bi-question-circle-fill" style="font-size:1.4em;"></i> Need Support
+  </a>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet"/>
+</body>
+</html>

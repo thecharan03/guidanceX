@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>About — GuidanceX Team</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    body {
+      background: #121215;
+      color: #f7f7fa;
+      font-family: 'Montserrat','Segoe UI',Arial,sans-serif;
+      margin: 0;
+      min-height:100vh;
+      width:100vw;
+    }
+    .about-main {
+      max-width:1200px;
+      margin:110px auto 36px auto;
+      padding:0 30px 42px 30px;
+      background:rgba(24, 24, 29, 0.92);
+      border-radius:38px;
+      box-shadow:0 8px 54px #111a;
+    }
+    .about-title {
+      font-size:2.55em;
+      font-weight:700;
+      margin-bottom:34px;
+      text-align:center;
+      color:#fff;
+      letter-spacing:0.05em;
+    }
+    .team-wrap {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+      gap: 32px 36px;
+      margin-top:36px;
+    }
+    .member-card {
+      background: linear-gradient(140deg,#232326 45%,#191a25 100%);
+      border-radius:23px;
+      box-shadow:0 2px 19px #ff770044;
+      padding:38px 22px 30px 22px;
+      text-align:center;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      transition: box-shadow .12s;
+      position:relative;
+    }
+    .member-card:hover {
+      box-shadow:0 6px 29px #ff770077,0 0 8px #fff2;
+      border:2px solid #ff7700;
+    }
+    .avatar-svg {
+      width:88px;
+      height:88px;
+      border-radius:50%;
+      background:#181922;
+      box-shadow:0 2px 12px #ff770055;
+      margin-bottom:14px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .member-role {
+      font-size:1.04em;
+      color:#ff7700;
+      font-weight:700;
+      margin-bottom:7px;
+    }
+    .member-name {
+      font-size:1.22em;
+      color:#fff;
+      font-weight:600;
+      margin-bottom:6px;
+      letter-spacing:0.01em;
+    }
+    .member-desc {
+      font-size:1em;
+      color:#babaca;
+      font-weight:400;
+      margin-bottom:0;
+      line-height:1.35;
+    }
+    @media (max-width:600px) {
+      .about-title {font-size:1.3em;}
+      .about-main {border-radius:8px; padding:0 7px;}
+      .team-wrap {gap:20px 12px;}
+      .member-card {padding:23px 8px;}
+      .avatar-svg {width:53px;height:53px;}
+    }
+  </style>
+</head>
+<body>
+  <div class="about-main">
+    <div class="about-title">
+      Meet the <span style="color:#ff7700;">GuidanceX</span> Leadership Team
+    </div>
+    <div class="team-wrap">
+      <!-- CEO -->
+      <div class="member-card">
+        <div class="avatar-svg">
+          <svg viewBox="0 0 90 90">
+            <circle cx="45" cy="45" r="40" fill="#ff7700"/>
+            <circle cx="45" cy="38" r="20" fill="#fff"/>
+            <rect x="32" y="53" width="26" height="15" rx="7.6" fill="#232326"/>
+            <ellipse cx="44" cy="42" rx="3" ry="5" fill="#180818"/>
+          </svg>
+        </div>
+        <div class="member-role">Chief Executive Officer</div>
+        <div class="member-name">Charan Mohan</div>
+        <p class="member-desc">
+          Visionary founder. Delivers the spark and strategy behind GuidanceX.<br>
+          Always learning, always leading.
+        </p>
+      </div>
+      <!-- CTO -->
+      <div class="member-card">
+        <div class="avatar-svg">
+          <svg viewBox="0 0 90 90">
+            <circle cx="45" cy="45" r="40" fill="#232326"/>
+            <rect x="27" y="50" width="36" height="15" rx="5" fill="#ff7700"/>
+            <circle cx="45" cy="38" r="20" fill="#fff"/>
+            <rect x="35" y="53" width="20" height="5" rx="2.5" fill="#232326"/>
+          </svg>
+        </div>
+        <div class="member-role">Chief Technology Officer</div>
+        <div class="member-name">Akhil S.</div>
+        <p class="member-desc">
+          MERN stack wizard. Drives innovation and robust scalability.<br>
+          Loves clean code and smart solutions.
+        </p>
+      </div>
+      <!-- Web Developer -->
+      <div class="member-card">
+        <div class="avatar-svg">
+          <svg viewBox="0 0 90 90">
+            <circle cx="45" cy="45" r="40" fill="#fff"/>
+            <rect x="25" y="50" width="40" height="15" rx="7" fill="#ff7700"/>
+            <rect x="40" y="35" width="10" height="18" fill="#232326"/>
+            <rect x="38" y="53" width="14" height="5" rx="2.5" fill="#ff7700"/>
+          </svg>
+        </div>
+        <div class="member-role">Web Developer</div>
+        <div class="member-name">Sneha Patel</div>
+        <p class="member-desc">
+          Designs stunning UIs and dynamic experiences.<br>
+          Turning vision into seamless navigation.
+        </p>
+      </div>
+      <!-- Finance Lead -->
+      <div class="member-card">
+        <div class="avatar-svg">
+          <svg viewBox="0 0 90 90">
+            <circle cx="45" cy="45" r="40" fill="#ff7700"/>
+            <ellipse cx="45" cy="40" rx="20" ry="12" fill="#232326"/>
+            <rect x="35" y="55" width="20" height="10" rx="5" fill="#fff"/>
+            <rect x="41" y="57" width="8" height="4" rx="2" fill="#ff7700"/>
+          </svg>
+        </div>
+        <div class="member-role">Head of Finance</div>
+        <div class="member-name">Rohan Jain</div>
+        <p class="member-desc">
+          Ensures every idea is invested well.<br>
+          Data-driven, efficient, and budget-friendly.
+        </p>
+      </div>
+      <!-- Help Services -->
+      <div class="member-card">
+        <div class="avatar-svg">
+          <svg viewBox="0 0 90 90">
+            <circle cx="45" cy="45" r="40" fill="#232326"/>
+            <circle cx="45" cy="38" r="20" fill="#ff7700"/>
+            <ellipse cx="45" cy="60" rx="18" ry="8" fill="#fff"/>
+            <rect x="41" y="55" width="8" height="4" rx="2" fill="#232326"/>
+          </svg>
+        </div>
+        <div class="member-role">Head of Help Services</div>
+        <div class="member-name">Priya Menon</div>
+        <p class="member-desc">
+          Always available. Always caring.<br>
+          Delivers top support and solutions for our learners.
+        </p>
+      </div>
+      <!-- Marketing Lead -->
+      <div class="member-card">
+        <div class="avatar-svg">
+          <svg viewBox="0 0 90 90">
+            <circle cx="45" cy="45" r="40" fill="#232326"/>
+            <ellipse cx="45" cy="38" rx="20" ry="14" fill="#fff"/>
+            <rect x="41" y="55" width="8" height="4" rx="2" fill="#ff7700"/>
+            <rect x="40" y="60" width="10" height="5" rx="2.2" fill="#232326"/>
+          </svg>
+        </div>
+        <div class="member-role">Growth & Marketing</div>
+        <div class="member-name">Ankit Rao</div>
+        <p class="member-desc">
+          Fuels our brand’s voice.<br>
+          Loves creative outreach and big results.
+        </p>
+      </div>
+      <!-- Community Manager -->
+      <div class="member-card">
+        <div class="avatar-svg">
+          <svg viewBox="0 0 90 90">
+            <circle cx="45" cy="45" r="40" fill="#ff7700"/>
+            <rect x="35" y="32" width="20" height="20" rx="8" fill="#232326"/>
+            <ellipse cx="45" cy="57" rx="15" ry="7" fill="#fff"/>
+            <rect x="41" y="55" width="8" height="4" rx="2" fill="#ff7700"/>
+          </svg>
+        </div>
+        <div class="member-role">Community Manager</div>
+        <div class="member-name">Divya Agarwal</div>
+        <p class="member-desc">
+          Builds, engages, and empowers our user family.<br>
+          Heart of GuidanceX’s vibrant space!
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

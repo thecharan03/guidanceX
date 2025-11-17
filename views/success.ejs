@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Enrollment Success | GuidanceX</title>
+  <link rel="stylesheet" href="/style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <%- include('partials/header') %>
+  <div class="main" style="text-align:center;">
+    <% if (msg) { %>
+      <div class="flashmsg"><%= msg %></div>
+    <% } %>
+    <h2>Your enrollment is confirmed! 🚀</h2>
+    <p>
+      You will receive an email with details soon.<br>
+      Explore more courses anytime from your dashboard.
+    </p>
+    <a href="/topics"><button class="main-btn">Browse More Courses</button></a>
+  </div>
+  <%- include('partials/footer') %>
+</body>
+</html>

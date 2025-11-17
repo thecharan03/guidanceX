@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Welcome | GuidanceX</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=SF+Pro+Text:wght@400;600&display=swap');
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      background: linear-gradient(135deg, #141418, #1e212e);
+      color: #f7f7fa;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .welcome-container {
+      background: #23232bcc;
+      border-radius: 32px;
+      box-shadow: 0 8px 72px rgba(0,0,0,0.85);
+      width: 470px;
+      max-width: 90vw;
+      padding: 56px 48px;
+      box-sizing: border-box;
+      text-align: center;
+    }
+    h1 {
+      font-weight: 700;
+      font-size: 2.65rem;
+      letter-spacing: 0.035em;
+      margin-bottom: 24px;
+      color: #fff;
+      text-shadow: 0 0 15px #609efaaa;
+    }
+    p {
+      font-weight: 500;
+      font-size: 1.22rem;
+      color: #cdd0d6;
+      line-height: 1.5;
+      margin-bottom: 36px;
+    }
+    .flash-message {
+      background: #2c3649cc;
+      padding: 12px;
+      margin-bottom: 36px;
+      border-radius: 18px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: #56c0fe;
+      box-shadow: 0 0 24px #56c0fe99;
+    }
+    button {
+      margin-top: 10px;
+      border: none;
+      border-radius: 19px;
+      padding: 14px 0;
+      font-weight: 700;
+      font-size: 1.28rem;
+      color: white;
+      background: linear-gradient(90deg, #5e8bff 0%, #74bfff 90%);
+      cursor: pointer;
+      box-shadow: 0 7px 29px #5e8bffaa;
+      transition: background 0.22s ease, box-shadow 0.22s ease;
+      letter-spacing: 0.018em;
+      width: 100%;
+      max-width: 300px;
+    }
+    button:hover {
+      background: linear-gradient(90deg, #739eff 0%, #4b72ee 100%);
+      box-shadow: 0 9px 36px #4b72eecc;
+    }
+    .footer-text {
+      margin-top: 42px;
+      font-size: 0.94rem;
+      color: #90919b;
+      font-weight: 400;
+    }
+    @media (max-width: 480px) {
+      .welcome-container {
+        width: 95vw;
+        padding: 38px 30px;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+      p {
+        font-size: 1rem;
+      }
+      button {
+        font-size: 1.18rem;
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="welcome-container">
+    <% if(msg){ %>
+      <div class="flash-message"><%= msg %></div>
+    <% } %>
+    <h1>Welcome, Charan!</h1>
+    <p>Unlock expert courses in Business, Trading, Design, Freelancing, and Personal Growth.<br>
+      Your journey to mastery starts here.</p>
+    <form action="/topics" method="GET">
+      <button type="submit">Get Started</button>
+    </form>
+  </div>
+</body>
+</html>
