@@ -136,6 +136,7 @@
     }
     .course-icon { font-size: 4rem; margin-bottom: 16px;}
     .course-title { font-size:1.23rem; font-weight:700; margin-bottom:10px;}
+    .course-desc { font-size:1rem; color:#ffe3ff; margin-bottom:12px;}
     .btn {
       background: #fff; color: #6a2ebf;
       padding: 10px 18px; border-radius: 12px;
@@ -168,11 +169,12 @@
     </div>
   </nav>
 
+  <!-- Sale + Countdown Hero Section -->
   <section class="hero">
     <div class="hero-content">
       <div class="logo-badge">LO:GO</div>
-      <img src="/images/sale_left.png" class="side-img left" alt="product" />
-      <img src="/images/sale_right.png" class="side-img right" alt="product" />
+      <img src="https://cdn-icons-png.flaticon.com/512/6134/6134065.png" class="side-img left" alt="camera"/>
+      <img src="https://cdn-icons-png.flaticon.com/512/3449/3449772.png" class="side-img right" alt="drone"/>
       <div class="hero-title-main">NEW YEAR SALE!</div>
       <div class="hero-offer">offer <span style="font-weight:800;">ends in</span></div>
       <div class="countdown-timer" id="countdown">
@@ -190,38 +192,59 @@
     </div>
   </section>
 
+  <!-- Courses List -->
   <div class="section-title">Check our <span style="color:#6a2ebf">special products</span></div>
   <section class="courses-section">
     <div class="grid">
-      <% const iconMap = {
-        business: "bi-building",
-        trading: "bi-currency-exchange",
-        design: "bi-brush",
-        freelancer: "bi-person-workspace",
-        personalgrowth: "bi-magic"
-      }; %>
-      <% topics.forEach(topic => { %>
-        <div class="course-card" onclick="window.location='/topic/<%= topic.name %>'">
-          <i class="course-icon bi <%= iconMap[topic.name.toLowerCase().replace(/\s+/g,'')] || 'bi-code-slash' %>"></i>
-          <div class="course-title"><%= topic.name %></div>
-          <button class="btn">View Tracks</button>
-        </div>
-      <% }) %>
+      <!-- Fill with your 5 real courses below -->
+      <div class="course-card" onclick="window.location='/topic/Business Strategy'">
+        <i class="course-icon bi bi-building"></i>
+        <div class="course-title">Business Strategy</div>
+        <div class="course-desc">Master the foundations of business decision-making, market analysis, and growth tactics.</div>
+        <button class="btn">View Tracks</button>
+      </div>
+      <div class="course-card" onclick="window.location='/topic/Design Thinking'">
+        <i class="course-icon bi bi-brush"></i>
+        <div class="course-title">Design Thinking</div>
+        <div class="course-desc">Unlock creativity with hands-on UI/UX, wireframes, and product design workshops.</div>
+        <button class="btn">View Tracks</button>
+      </div>
+      <div class="course-card" onclick="window.location='/topic/Web Development'">
+        <i class="course-icon bi bi-code-slash"></i>
+        <div class="course-title">Web Development</div>
+        <div class="course-desc">Frontend and backend: Learn HTML, CSS, JavaScript, and the full-stack workflow.</div>
+        <button class="btn">View Tracks</button>
+      </div>
+      <div class="course-card" onclick="window.location='/topic/Personal Growth'">
+        <i class="course-icon bi bi-magic"></i>
+        <div class="course-title">Personal Growth</div>
+        <div class="course-desc">Improve skills, time management, and mindset with actionable self-development lessons.</div>
+        <button class="btn">View Tracks</button>
+      </div>
+      <div class="course-card" onclick="window.location='/topic/Freelancing'">
+        <i class="course-icon bi bi-person-workspace"></i>
+        <div class="course-title">Freelancing</div>
+        <div class="course-desc">Build your brand, manage clients, and create a successful freelance career!</div>
+        <button class="btn">View Tracks</button>
+      </div>
     </div>
   </section>
 
+  <!-- Gallery Section -->
   <div class="gallery-section">
     <div class="gallery-title">Gallery</div>
     <div class="gallery-grid">
-      <% gallery.forEach(img => { %>
-        <img src="<%= img %>" alt="gallery" class="gallery-img" />
-      <% }) %>
+      <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308" alt="Gallery" class="gallery-img"/>
+      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb" alt="Gallery" class="gallery-img"/>
+      <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca" alt="Gallery" class="gallery-img"/>
+      <img src="https://images.unsplash.com/photo-1519985176271-adb1088fa94c" alt="Gallery" class="gallery-img"/>
+      <img src="https://images.unsplash.com/photo-1465101178521-cce3c7f1b103" alt="Gallery" class="gallery-img"/>
     </div>
   </div>
 
   <script>
     // Countdown timer JS (Set your end date!)
-    const endDate = new Date('2026-01-05T23:59:59'); // Set sale end date here
+    const endDate = new Date('2026-01-05T23:59:59'); // Set your sale end date/time
     function updateCountdown(){
       const now = new Date();
       const diff = endDate - now;
