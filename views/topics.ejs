@@ -1,122 +1,190 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Code Realm | Akhil Trivedi</title>
+  <title>GuidanceX | Code Realm</title>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" rel="stylesheet" />
-  <link rel="stylesheet" href="/style.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" rel="stylesheet"/>
   <style>
-    html, body {
+    body {
       margin: 0; padding: 0; min-height: 100vh; width: 100vw;
       font-family: 'Montserrat', Arial, sans-serif;
       background: linear-gradient(120deg,#191d24,#1e2236);
-      color: #f1f1f1;
+      color: #eae6f6;
       display: flex; flex-direction: column; align-items: center;
     }
-    /* Navigation and header styles - same as GuidanceX */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
       background: rgba(22,25,33,0.9);
-      backdrop-filter: saturate(180%) blur(15px);
+      backdrop-filter: blur(12px);
       box-shadow: 0 0 2px #111;
       display: flex; justify-content: space-between; align-items: center;
-      padding: 0 42px; height: 74px; border-bottom: 1.4px solid #3f4f7825;
+      padding: 0 42px; height: 74px; border-bottom: 1.4px solid #43319540;
     }
-    .nav-logo { display: flex; align-items: center; gap: 14px; font-weight: 600; font-size: 1.35rem; color: #efefee; }
+    .nav-logo { display: flex; align-items: center; gap: 14px; font-weight: 600; font-size: 1.35rem; color: #c7bafd; }
     .nav-logo svg { width: 44px; height: 44px; border-radius: 14px; box-shadow: 0 0 2px #111; }
     .nav-links { display: flex; gap: 28px; }
-    .nav-links a { color: #aab4cc; font-size: 1rem; font-weight: 500; text-decoration: none; padding: 6px 16px; border-radius: 16px; transition: color 0.18s, background 0.18s;}
-    .nav-links a:hover { background: #074e81; color: #00b1ff; text-shadow: 0 0 12px #00bfff;}
-    .nav-actions button { background: linear-gradient(20deg, #00b1ff, #006cbf); border: none; border-radius: 16px; font-weight: 600; font-size: 1.02rem; padding: 10px 28px; color: #fff; box-shadow: 0 0 2px #111; cursor: pointer; transition: background 0.22s ease; margin-left: 16px; }
-    .nav-actions button:hover { background: linear-gradient(90deg, #0079ca, #004d82); box-shadow: 0 5px 14px #0079ca66; }
-    main { margin-top: 94px; padding: 0 2rem 44px 2rem; max-width: 1240px; width: 100%; box-sizing: border-box; }
-    h1 { font-weight: 800; font-size: 3.2rem; text-align: center; margin-bottom: 48px; color: #00aaffee; text-shadow: 0 0 15px #00456eaa; user-select: none; }
-    
-    /* Courses/Projects Grid Styles */
-    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 38px 36px; }
+    .nav-links a { color: #b3b6e6; font-size: 1rem; font-weight: 500; text-decoration: none; padding: 6px 16px; border-radius: 16px; transition: color 0.18s, background 0.18s;}
+    .nav-links a:hover { background: #7157d3; color: #fff; text-shadow: 0 0 12px #a58bf5; }
+    .nav-actions button { background: linear-gradient(20deg, #7157d3, #86abfc); border: none; border-radius: 16px; font-weight: 600; font-size: 1.02rem; padding: 10px 28px; color: #fff; box-shadow: 0 0 2px #111; cursor: pointer; transition: background 0.22s ease; margin-left: 16px; }
+    .nav-actions button:hover { background: linear-gradient(90deg, #7e72e6, #9cbefd); box-shadow: 0 4px 14px #7157d390; }
+    main { margin-top: 102px; width:100%; max-width:1280px; }
+    h1 { font-family:'Orbitron', Arial, sans-serif; font-weight: 800; font-size: 2.5rem; text-align: center; margin-bottom: 44px; color: #c7bafd; letter-spacing:0.09em; text-shadow: 0 0 15px #7157d388; }
+    .hero-box {
+      text-align:center;
+      padding:48px 12px 26px 12px;
+      background: #7157d3;
+      border-radius: 30px;
+      margin-bottom: 22px;
+      box-shadow: 0 6px 32px #7157d355;
+      color: #fff;
+    }
+    .hero-title { font-family:'Orbitron', Arial,sans-serif; font-size:2.1rem; letter-spacing:0.13em; font-weight:900; margin-bottom:13px;}
+    .hero-desc { font-size:1.05rem; color:#e6deff; margin-bottom:19px;}
+    .hero-btns { display: flex; gap:34px; justify-content:center; margin-top:26px;}
+    .hero-btn { background: #c7bafd; color: #7157d3; padding: 11px 38px; font-weight:700; font-size:1.08rem; border-radius:17px; border:none; margin-bottom:0; transition:background 0.22s;color 0.22s; cursor:pointer;}
+    .hero-btn:hover { background:#7157d3; color:#fff;}
+    .gallery-row {display: flex; gap: 30px; justify-content: center; margin:22px 0 35px 0; flex-wrap:wrap;}
+    .gallery-card {background:#b499fc;border-radius:19px;box-shadow:0 4px 20px #7e72e666;padding:13px;width:185px;text-align:center;display:flex;flex-direction:column;align-items:center;}
+    .gallery-img { width:159px; height:159px; border-radius:17px; object-fit:cover; background:#8362d6;margin-bottom:10px; }
+    .gallery-label {color:#504091;font-size:1.03rem;font-weight:600;text-align:center;letter-spacing:.07em;}
+    .exploit-title{font-family:'Orbitron',Arial,sans-serif;text-align:center;font-size:1.24rem;color:#c7bafd;letter-spacing:0.13em;font-weight:800;margin:38px 0 18px 0;}
+    .exploit-row {margin:0 auto 35px auto;max-width:960px;display:flex;gap:38px;justify-content:center;}
+    .exploit-box{background:#d1c5eb;border-radius:17px;color:#504091;padding:18px 19px;box-sizing:border-box;font-size:0.97rem;font-weight:600;box-shadow:0 2px 18px #7157d344;min-width:230px;max-width:430px;flex:1;text-align:center;}
+    .projects-title{font-family:'Orbitron',Arial,sans-serif;font-size:1.18rem;color:#7157d3;font-weight:800;letter-spacing:0.11em;margin:34px 0 18px 0;text-align:center;}
+    .projects-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 28px; max-width: 980px; margin:0 auto 32px auto; width:94vw;
+    }
     .project-card {
-      background: #232f41bb;
-      border-radius: 28px;
-      box-shadow: 0 0 3px #206ea766, 0 0 6px #00baff33;
+      background: #b8a0f9;
+      border-radius: 17px;
+      box-shadow: 0 6px 20px #7e72e644;
       padding: 0;
-      display: flex; flex-direction: column; align-items: center; cursor: pointer; transition: all 0.22s ease; user-select: none; overflow: hidden;
+      flex-direction: column; align-items: center; cursor:pointer; transition: all .15s; overflow:hidden;
     }
-    .project-card:hover {
-      box-shadow: 0 0 9px #00aaff77, 0 4px 12px #008fcc88;
-      background: #112230cc;
-      transform: scale(1.04);
-    }
-    .project-thumb {
-      width: 100%; height: 180px; object-fit: cover;
-      border-radius: 28px 28px 0 0;
-      box-shadow: 0 0 7px #2066fe77;
-    }
-    .project-title {
-      font-size: 1.18rem; font-weight: 700; color: #00baff; margin: 22px 0 8px 0; letter-spacing: 0.03em; text-align: center;
-    }
-    .project-desc {
-      font-size: 1.02rem; color: #ccd8ff; text-align: center; margin-bottom: 20px;
-      padding: 0 16px;
-    }
-    .project-action {
-      background: linear-gradient(140deg, #2e6bff, #57a8ff 66%);
-      border: none; border-radius: 18px; font-weight: 700; font-size: 1.12rem; padding: 14px 28px;
-      box-shadow: 0 4px 12px #2066fe88; color: #e0f3ff; width: 90%; max-width: 210px; cursor: pointer; margin-bottom: 18px;
-      transition: background 0.22s ease;
-    }
-    .project-action:hover { background: linear-gradient(90deg, #005e9e 0%, #00b1ff 100%); box-shadow: 0 5px 22px #1b66fe88; }
-    @media (max-width: 720px) {
-      .projects-grid { grid-template-columns: repeat(auto-fit,minmax(180px,1fr)); }
-      .project-title { font-size: 1.07rem; }
-      .project-action { font-size: 1rem; padding: 12px 16px; max-width: 170px; }
-    }
+    .project-thumb { width: 100%; height: 132px; object-fit:cover; border-radius: 17px 17px 0 0;}
+    .project-title { font-size: 1.08rem; font-weight: 700; color: #7157d3; margin: 14px 0 5px 0; text-align:center;}
+    .project-desc { font-size: 0.99rem; color: #504091; text-align:center; margin-bottom:12px; padding:0 12px;}
+    .project-action { background: linear-gradient(140deg, #7e72e6, #c7bafd 70%); border:none;border-radius:14px;font-weight:700;font-size:1.07rem;padding:11px 22px;box-shadow:0 2px 12px #c7bafd44;color:#504091;width:85%;max-width:150px;cursor:pointer;margin:0 auto 14px auto;transition:background .18s;color .18s;}
+    .project-action:hover {background: linear-gradient(90deg,#7157d3 0%, #c7bafd 100%); color:#fff;}
+    /* COURSES GRID BELOW as requested */
+    .courses-title{font-family:'Orbitron',Arial,sans-serif;font-size:1.24rem;color:#c7bafd;font-weight:800;letter-spacing:0.105em;margin:28px 0 14px 0;text-align:center;}
+    .courses-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 28px; max-width: 980px;margin:0 auto 55px auto;width:94vw;}
+    .course-card { background: linear-gradient(120deg,#ece5fa 85%,#7157d3 100%); border-radius:17px;padding:22px 15px;text-align:center; color:#504091; box-shadow:0 6px 16px #7157d344;font-weight:700;font-size:1.11rem;display:flex;flex-direction:column;align-items:center;}
+    .course-name { font-size:1.09rem;font-family:'Orbitron',Arial,sans-serif;font-weight:800;color:#7157d3;margin-bottom:11px;}
+    .course-icon { font-size:2.5rem;color:#7157d3;margin-bottom:7px;}
+    .course-desc { font-size:0.95rem; color:#504091; margin-bottom:13px; min-height:25px;font-weight:500;}
+    .course-btn { background:#7157d3; color:#fff;font-weight:700;padding:8px 22px;border-radius:13px;border:none;font-size:1rem;letter-spacing:.07em;cursor:pointer;box-shadow:0 2px 10px #7157d344;}
+    .course-btn:hover { background:#504091; color:#fff;}
+    @media (max-width:820px){nav{padding:0 12px;}main{padding:0;}.exploit-row{gap:16px}.gallery-row{gap:16px;}.projects-grid,.courses-grid{gap:16px;} }
+    @media (max-width:540px){h1,.hero-title,.projects-title,.exploit-title,.courses-title{font-size:.95rem;}.hero-box{padding:13px 0;}.courses-grid{grid-template-columns:1fr;} }
   </style>
 </head>
 <body>
   <!-- Navigation -->
   <nav>
     <div class="nav-logo">
-      <svg viewBox="0 0 55 39"><rect x="12" y="8" width="28" height="8" rx="3.2" fill="#ff7700" stroke="#fff" stroke-width="2"/><rect x="16.5" y="16" width="19" height="9" rx="3.2" fill="#232326" stroke="#ff7700" stroke-width="1.5"/><polygon points="20,25 30,32 26,34 36,37 28,27" fill="#fff" stroke="#ff7700" stroke-width="1"/><circle cx="28" cy="12" r="3.2" fill="#fff" stroke="#ff7700" stroke-width="2"/></svg>
-      Akhil Trivedi's Code Realm
+      <svg viewBox="0 0 55 39" aria-hidden="true"><rect x="12" y="8" width="28" height="8" rx="3.2" fill="#ff7700" stroke="#fff" stroke-width="2"/><rect x="16.5" y="16" width="19" height="9" rx="3.2" fill="#232326" stroke="#ff7700" stroke-width="1.5"/><polygon points="20,25 30,32 26,34 36,37 28,27" fill="#fff" stroke="#ff7700" stroke-width="1"/><circle cx="28" cy="12" r="3.2" fill="#fff" stroke="#ff7700" stroke-width="2"/></svg>
+      GuidanceX Code Realm
     </div>
     <div class="nav-links">
       <a href="/">Home</a>
+      <a href="/topics">Courses</a>
       <a href="#projects">Projects</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
+      <a href="/about">About</a>
+      <a href="/help">Help</a>
     </div>
     <div class="nav-actions">
       <a href="/login"><button>Log In</button></a>
-      <a href="/#projects"><button>View Work</button></a>
+      <a href="/topics"><button>View Work</button></a>
     </div>
   </nav>
-  <!-- Header -->
   <main>
-    <h1 id="projects">Latest Projects</h1>
-    <section class="projects-grid">
-      <!-- Example cards, swap img src for your real project images -->
-      <div class="project-card" onclick="window.open('https://yourprojectlink.com')">
-        <img class="project-thumb" src="/uploads/image.jpg" alt="Design Project 1" />
-        <h3 class="project-title">Get Designs</h3>
-        <p class="project-desc">Showcase of creative UI and design solutions.</p>
-        <button class="project-action">View Details</button>
+    <!-- HERO / INTRO -->
+    <div class="hero-box">
+      <div class="hero-title">UNLEASHING COMPUTING WONDERS</div>
+      <div class="hero-desc">
+        Welcome to GuidanceX, where code meets creativity.  
+        <br>Explore modern computing, design, business, and growth.
+      </div>
+      <div class="hero-btns">
+        <a href="/topics"><button class="hero-btn">View My Work</button></a>
+        <a href="/contact"><button class="hero-btn">Reach Out Now</button></a>
+      </div>
+    </div>
+    <!-- Example GALLERY/PROJECTS (replace with your own images) -->
+    <div class="gallery-row">
+      <div class="gallery-card">
+        <img src="https://images.unsplash.com/photo-1465101178521-cce3c7f1b103" class="gallery-img"/>
+        <div class="gallery-label">UI/UX Design</div>
+      </div>
+      <div class="gallery-card">
+        <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e" class="gallery-img"/>
+        <div class="gallery-label">Brand Showcase</div>
+      </div>
+      <div class="gallery-card">
+        <img src="https://images.unsplash.com/photo-1482062364825-616fd23b8fc1" class="gallery-img"/>
+        <div class="gallery-label">Code Skills</div>
+      </div>
+      <div class="gallery-card">
+        <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca" class="gallery-img"/>
+        <div class="gallery-label">Freelance Gallery</div>
+      </div>
+    </div>
+
+    <!-- Exploits section like your reference -->
+    <div class="exploit-title">GUIDANCEX EXPLOITS</div>
+    <div class="exploit-row">
+      <div class="exploit-box">
+        Expertise in business, design, and trading using modern tools and hands-on experiences.
+      </div>
+      <div class="exploit-box">
+        Building new coding, web, and growth courses for learners and career upskilling.
+      </div>
+    </div>
+    <!-- Projects style grid -->
+    <div class="projects-title" id="projects">LATEST PROJECTS</div>
+    <div class="projects-grid">
+      <div class="project-card">
+        <img class="project-thumb" src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308" alt="Project 1"/>
+        <div class="project-title">Design Projects</div>
+        <div class="project-desc">Creative UI, branding, and design showcases.</div>
+        <a href="/topics"><button class="project-action">View Details</button></a>
       </div>
       <div class="project-card">
-        <img class="project-thumb" src="/uploads/your-tech-image.jpg" alt="Computing Wonders" />
-        <h3 class="project-title">Computing Wonders</h3>
-        <p class="project-desc">Enchanting code; modern CS meets aesthetics.</p>
-        <button class="project-action">Learn More</button>
+        <img class="project-thumb" src="https://images.unsplash.com/photo-1506744038136-46273834b3fb" alt="Project 2"/>
+        <div class="project-title">Trading Insights</div>
+        <div class="project-desc">Learn market analysis and successful trading projects.</div>
+        <a href="/topics"><button class="project-action">Learn More</button></a>
       </div>
       <div class="project-card">
-        <img class="project-thumb" src="/uploads/your-learning-image.jpg" alt="Learning Tech" />
-        <h3 class="project-title">Learning Tech</h3>
-        <p class="project-desc">Hands-on coding guides and tutorials.</p>
-        <button class="project-action">Start Learning</button>
+        <img class="project-thumb" src="https://images.unsplash.com/photo-1519985176271-adb1088fa94c" alt="Project 3"/>
+        <div class="project-title">Freelance Client Work</div>
+        <div class="project-desc">Showcase of real freelance projects and client stories.</div>
+        <a href="/topics"><button class="project-action">Start Learning</button></a>
       </div>
-      <!-- Add more cards as desired -->
-    </section>
-    <!-- Add any 'Akhil's Exploits' or other sections as desired -->
+    </div>
+    <!-- YOUR COURSES GRID, linked correctly -->
+    <div class="courses-title">GUIDANCEX COURSES</div>
+    <div class="courses-grid">
+      <% 
+        const iconMap = {
+          business: "bi-building",
+          trading: "bi-currency-exchange",
+          design: "bi-brush",
+          freelancer: "bi-person-workspace",
+          personalgrowth: "bi-magic"
+        };
+      %>
+      <% topics.forEach(topic => { %>
+        <a class="course-card" href="/topic/<%= encodeURIComponent(topic.name) %>" tabindex="0" role="button">
+          <div class="course-icon bi <%= iconMap[topic.name.toLowerCase().replace(/\s+/g,'')] || 'bi-code-slash' %>"></div>
+          <div class="course-name"><%= topic.name %></div>
+          <div class="course-desc"><%= topic.desc %></div>
+          <button class="course-btn">View Tracks</button>
+        </a>
+      <% }) %>
+    </div>
   </main>
 </body>
 </html>
