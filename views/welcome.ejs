@@ -1,10 +1,13 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <title>Welcome | GuidanceX</title>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
   <style>
     body {
       margin: 0;
@@ -12,6 +15,8 @@
       font-family: 'Montserrat', Arial, sans-serif;
       background: radial-gradient(ellipse at top left, #ccbafc 0%, #cce1fc 70%, #b9c7e7 100%);
     }
+
+    /* NAVBAR */
     .main-nav {
       background: #fff;
       box-shadow: 0 2px 16px #867ee033;
@@ -29,12 +34,13 @@
       font-size: 1.07rem;
       letter-spacing: 0.04em;
     }
-    .nav-links a.active, .nav-links a:hover {
+    .nav-links a.active,
+    .nav-links a:hover {
       color: #6546b7;
       background: #e7e4f5;
       border-radius: 8px;
-      transition: background 0.22s;
       padding: 4px 12px;
+      transition: background 0.22s;
     }
     .btn-signup {
       background: #b0a7fe;
@@ -49,6 +55,8 @@
       transition: background 0.22s;
     }
     .btn-signup:hover { background: #6546b7; }
+
+    /* HERO SECTION */
     .hero {
       display: flex;
       flex-direction: row;
@@ -62,6 +70,7 @@
       background: #fff;
       box-shadow: 0 16px 40px #d6daf955;
     }
+
     .hero-content {
       flex: 1;
       padding-right: 32px;
@@ -70,7 +79,6 @@
       font-size: 2.8rem;
       font-weight: 800;
       color: #6546b7;
-      letter-spacing: 0.01em;
       margin-bottom: 0.6rem;
     }
     .hero-subtitle {
@@ -82,8 +90,10 @@
     .hero-desc {
       color: #7b7b9d;
       font-size: 1rem;
-      margin-bottom: 2.2rem;
+      margin-bottom: 2rem;
+      line-height: 1.6;
     }
+
     .btn-continue {
       background: #e1e3fe;
       color: #6546b7;
@@ -95,50 +105,73 @@
       box-shadow: 0 2px 16px #c5bafc66;
       transition: background 0.22s;
     }
-    .btn-continue:hover { background: #6546b7; color: #fff; }
+    .btn-continue:hover {
+      background: #6546b7;
+      color: #fff;
+    }
+
+    /* HERO IMAGE */
     .hero-img {
       flex: 1;
       text-align: center;
     }
     .hero-img img {
       max-width: 95%;
-      width: 320px;
-      border-radius: 2rem;
-      box-shadow: 0 2px 22px #b0a7fe26;
-      margin-top: 15px;
+      width: 340px;
+      border-radius: 1.5rem;
+      filter: drop-shadow(0 10px 24px #b0a7fe55);
+      margin-top: 10px;
     }
+
+    /* MOBILE */
     @media (max-width:900px) {
-      .hero { flex-direction: column; text-align:center; padding:2rem 0; }
-      .hero-content { padding:0; }
-      .hero-img { margin-top:24px;}
+      .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem 1rem;
+      }
+      .hero-content { padding: 0; }
+      .hero-img { margin-top: 20px; }
+      .hero-img img { width: 280px; }
     }
   </style>
 </head>
+
 <body>
-  <!-- Navigation Bar -->
+
+  <!-- NAV BAR -->
   <nav class="main-nav">
     <div class="nav-logo fw-bold fs-4" style="color:#6546b7;">GuidanceX</div>
     <div class="nav-links">
-      <a href="/" class="">Home</a>
-      <a href="/about" class="">About</a>
-      <a href="/help" class="">Services</a>
-      <a href="/help" class="">Contact</a>
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+      <a href="/help">Services</a>
+      <a href="/help">Contact</a>
       <button class="btn-signup">Sign Up</button>
     </div>
   </nav>
-  <!-- Hero Section -->
+
+  <!-- HERO -->
   <section class="hero">
     <div class="hero-content">
       <div class="hero-title">WELCOME</div>
       <div class="hero-subtitle">GuidanceX</div>
-      <div class="hero-desc">"Step into your personalized learning space.
-Your growth journey begins now."</div>
-      <button class="/topics">Continue</button>
+
+      <div class="hero-desc">
+        "Step into your personalized learning space.<br>
+        Your growth journey begins now."
+      </div>
+
+      <form action="/topics">
+        <button class="btn-continue">Continue</button>
+      </form>
     </div>
+
     <div class="hero-img">
-      <img src="/public/welcome-graphic.png" alt="Welcome Image" />
-      <!-- Replace with your custom SVG/PNG illustration -->
+      <!-- YOUR IMAGE INSERTED HERE -->
+      <img src="/public/welcome.png" alt="Welcome Graphic">
     </div>
   </section>
+
 </body>
 </html>
