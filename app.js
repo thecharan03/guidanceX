@@ -10,40 +10,40 @@ const topics = [
     name: "Business",
     desc: "Grow your entrepreneurial mindset with modern skills.",
     subtopics: [
-      { name: "Digital Marketing", expert: "Sanjana Joshi", initials: "SJ", price: "5999", desc: "Master social media, SEO, and campaigns." },
-      { name: "Management", expert: "Arun Mehta", initials: "AM", price: "4999", desc: "Lead teams, projects, and products." },
-      { name: "Analytics", expert: "Praveen Kumar", initials: "PK", price: "6999", desc: "Turn data into growth strategies." }
+      { name: "Digital Marketing", expert: "Sanjana Joshi", initials: "SJ", price: "599", desc: "Master social media, SEO, and campaigns. 72 days course" },
+      { name: "Management", expert: "Arun Mehta", initials: "AM", price: "499", desc: "Lead teams, projects, and products. 60 days course" },
+      { name: "Analytics", expert: "Praveen Kumar", initials: "PK", price: "699", desc: "Turn data into growth strategies.  70 days course" }
     ]
   },
   {
     name: "Trading",
     desc: "Achieve financial freedom and market expertise.",
     subtopics: [
-      { name: "Stock Market", expert: "Vinay Rao", initials: "VR", price: "6999", desc: "Beginners to advanced strategies." },
-      { name: "Crypto", expert: "Shreya Patil", initials: "SP", price: "7999", desc: "Blockchain, coins, DeFi investing." }
+      { name: "Stock Market", expert: "Vinay Rao", initials: "VR", price: "699", desc: "Beginners to advanced strategies.  72 days course" },
+      { name: "Crypto", expert: "Shreya Patil", initials: "SP", price: "799", desc: "Blockchain, coins, DeFi investing.  90 days course" }
     ]
   },
   {
     name: "Design",
     desc: "Create visuals that connect and inspire.",
     subtopics: [
-      { name: "UI/UX", expert: "Rohan Gupta", initials: "RG", price: "3999", desc: "Design products users love." },
-      { name: "Graphic Design", expert: "Manvi Jain", initials: "MJ", price: "4599", desc: "Branding, illustration, and more." }
+      { name: "UI/UX", expert: "Rohan Gupta", initials: "RG", price: "999", desc: "Design products users love,  102 days course" },
+      { name: "Graphic Design", expert: "Manvi Jain", initials: "MJ", price: "459", desc: "Branding, illustration, and more , 92 days course" }
     ]
   },
   {
     name: "Freelancer",
     desc: "Launch your career with real client work.",
     subtopics: [
-      { name: "Platforms", expert: "Sneha Das", initials: "SD", price: "3899", desc: "Upwork, Fiverr, find top gigs." }
+      { name: "Platforms", expert: "Sneha Das", initials: "SD", price: "899", desc: "Upwork, Fiverr, find top gigs,  80 days course" }
     ]
   },
   {
     name: "Personal Growth",
     desc: "Unlock your creativity and productivity.",
     subtopics: [
-      { name: "Time Management", expert: "Abhay S.", initials: "AS", price: "1999", desc: "Techniques for effective life balance." },
-      { name: "Mindfulness", expert: "Rekha S.", initials: "RS", price: "1599", desc: "Reduce stress, improve focus." }
+      { name: "Time Management", expert: "Abhay S.", initials: "AS", price: "999", desc: "Techniques for effective life balance. 72 days course" },
+      { name: "Mindfulness", expert: "Rekha S.", initials: "RS", price: "599", desc: "Reduce stress, improve focus.  72 days course" }
     ]
   }
 ];
