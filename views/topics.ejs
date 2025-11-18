@@ -1,250 +1,305 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>New Year Sale | GuidanceX</title>
+  <title>Sale & Courses | GuidanceX</title>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" rel="stylesheet"/>
   <style>
     body {
       margin: 0;
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Poppins', 'Montserrat', Arial, sans-serif;
       background: #5aa0ff;
       min-height: 100vh;
-      overflow-x: hidden;
     }
-    nav {
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 18px 50px;
-      background: rgba(255,255,255,0.13);
-      backdrop-filter: blur(18px);
-      font-size: 1.03rem;
-      position: fixed; top: 0; left: 0; z-index: 1000;
-    }
-    nav .logo {
-      font-size: 1.6rem; font-weight: 700; color: #fff;
-      letter-spacing: 0.09em;
-    }
-    nav a {
-      text-decoration: none;
-      color: white;
-      font-weight: 500;
-      margin: 0 15px;
-      transition: color 0.2s;
-    }
-    nav a:hover {
-      color: #ff73b8;
-    }
-    .hero {
-      margin-top: 100px;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 520px;
+    .container-main {
+      max-width: 1100px;
+      margin: 52px auto 0 auto;
+      padding: 0;
       background: none;
       position: relative;
     }
-    .hero-content {
-      background: #1a181c;
-      border-radius: 25px;
-      box-shadow: 0 10px 40px #0005;
-      width: 790px;
-      max-width: 85vw;
-      padding: 72px 58px 32px 58px;
-      text-align: center;
-      color: #fff;
+    .page-mockup {
+      background: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .laptop-frame {
+      background: transparent;
+      padding: 0;
+      margin: 0;
       position: relative;
+      z-index: 2;
     }
-    .hero-content .logo-badge {
-      background: #c7a8ef;
-      border-radius: 25px 25px 0 0;
-      color: #fff;
-      font-weight: 600;
-      letter-spacing: 0.13em;
-      font-size: 1.07rem;
-      margin-bottom: 38px;
-      position: absolute; left: 50%; top: -38px; transform: translateX(-50%);
-      width: 160px;
-      padding: 13px 0;
+    .laptop-screen {
+      background: #18131b;
+      border-radius: 50px 50px 24px 24px;
+      box-shadow: 0 12px 64px #26113f66;
+      width: 900px;
+      max-width: 92vw;
+      margin: 0 auto;
+      padding: 0;
+      position: relative;
+      top: 0;
+      z-index: 3;
+      border: 6px solid #4442b8;
+      overflow: hidden;
+    }
+    .sale-header {
+      padding: 42px 0 28px 0;
       text-align: center;
-      box-shadow: 0 5px 24px #ab91e650;
+      font-size: 2.8rem;
+      color: #fff;
+      font-weight: 900;
+      letter-spacing: 0.06em;
     }
-    .hero-title-main {
-      font-size: 2.6rem;
-      font-weight: 800;
-      margin-bottom: 20px;
-      letter-spacing: 0.04em;
+    .sale-badge {
+      position: absolute;
+      top: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #9587ec;
+      color: #fff;
+      font-weight: 700;
+      border-radius: 12px;
+      padding: 8px 32px;
+      font-size: 1.18rem;
+      box-shadow: 0 2px 12px #55448450;
+      z-index: 50;
+    }
+    .sale-row {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      padding: 0 44px 0 44px;
+      gap: 30px;
+      min-height: 210px;
+    }
+    .sale-img-feature {
+      width: 150px;
+      margin-bottom: -22px;
+      border-radius: 22px;
+      box-shadow: 0 7px 44px #17141e50;
+      background: #25205a;
+      border: 4px solid #9587ec22;
+    }
+    .sale-img-feature.right {
+      background: #191e24;
+      border-color: #ffb2b2aa;
+    }
+    .sale-details {
+      flex: 1 1 auto;
+      text-align: center;
+      padding-bottom: 34px;
+      min-width: 200px;
       color: #fff;
     }
-    .hero-offer {
-      font-size: 1.16rem;
+    .sale-details .offer {
+      font-size: 1.1rem;
       color: #ff73b8;
+      font-weight: 600;
+    }
+    .sale-details .timer-title {
+      font-size: 1.35rem;
+      color: #fff;
       font-weight: 700;
-      letter-spacing: 0.04em;
-      margin-bottom: 4px;
+      margin-top: 8px;
     }
-    .countdown-timer {
-      margin: 30px 0 23px 0;
-      display: flex; justify-content: center; gap: 40px;
-      font-size: 1.7rem; font-weight: 700; color:#fff;
+    .countdown-row {
+      display: flex;
+      gap: 33px;
+      justify-content: center;
+      margin-top: 23px;
+      font-size: 1.65rem;
+      font-weight: 800;
     }
-    .countdown-timer .num {
-      color: #fff; background:#2a2934; border-radius:12px; padding:9px 20px; min-width:62px;
-      box-shadow: 0 2px 10px #ab91e633;
-      margin-bottom: 8px;
+    .timer-box {
+      background: #2e244c;
+      border-radius: 13px;
+      padding: 10px 20px;
+      color: #fff;
+      min-width: 53px;
+      box-shadow: 0 2px 8px #651dbe66;
     }
-    .countdown-labels {
-      display: flex; justify-content: center; gap: 40px; font-size: 1rem; color:#c7a8ef;
+    .timer-label-row {
+      display: flex;
+      gap: 33px;
+      justify-content: center;
+      font-size: 0.98rem;
+      color: #a2b6f7;
+      margin: 5px 0 16px 0;
+      font-weight: 700;
     }
-    .side-img {
-      position: absolute;
-      top: 36px;
-      width: 120px;
-      z-index: 1;
-    }
-    .side-img.left { left: 22px;}
-    .side-img.right { right: 22px;}
-
     .section-title {
       text-align: center;
-      font-size: 1.35rem;
+      font-size: 1.52rem;
       font-weight: 700;
-      color: #181425;
-      margin: 60px 0 18px 0;
+      color: #29235b;
+      margin: 56px 0 16px 0;
+      letter-spacing: 0.03em;
     }
-    .courses-section {
-      width: 100%; display: flex; justify-content: center; margin-top: 10px;
-    }
+    /* Courses grid (below mockup) */
     .grid {
-      width: 90%; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 35px;
+      width: 95%;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 33px;
     }
     .course-card {
-      background: linear-gradient(120deg, #6a2ebf 55%, #ffafe3 100%);
-      border-radius: 22px;
-      padding: 35px 25px;
+      background: linear-gradient(130deg, #2e244c 75%, #ffafe3 100%);
+      border-radius: 19px;
+      padding: 27px 22px;
       text-align: center;
-      box-shadow: 0 6px 20px #2a2a2a20;
-      color: #fff; cursor: pointer; transition: transform 0.3s;
+      color: #fff;
+      box-shadow: 0 6px 14px #4a12cc33;
+      margin-bottom:18px;
+      min-height: 195px;
+      position: relative;
     }
     .course-card:hover {
-      transform: translateY(-8px) scale(1.03);
-      box-shadow: 0 18px 45px #6a2ebf14;
+      box-shadow: 0 18px 30px #4a12cc44;
+      transform: scale(1.04);
+      z-index:2;
     }
-    .course-icon { font-size: 4rem; margin-bottom: 16px;}
-    .course-title { font-size:1.23rem; font-weight:700; margin-bottom:10px;}
-    .course-desc { font-size:1rem; color:#ffe3ff; margin-bottom:12px;}
+    .course-icon { font-size:2.9rem; margin-bottom:8px;}
+    .course-title { font-size:1.13rem; font-weight:800;}
+    .course-desc {
+      font-size:0.96rem;
+      color:#ffe3ff;
+      margin:10px 0 14px 0;
+      min-height:38px;
+    }
     .btn {
-      background: #fff; color: #6a2ebf;
-      padding: 10px 18px; border-radius: 12px;
-      font-weight: 600; border: none; cursor: pointer;
+      background: #fff; color: #5e3ab3;
+      padding: 8px 15px;
+      border-radius: 11px;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      font-size: 1.01rem;
+      transition: 0.3s;
+      box-shadow: 0 2px 9px #c7a8ef50;
     }
     .btn:hover { background: #ffe3ff; color:#2a281f;}
-    /* GALLERY */
+    /* Gallery grid */
     .gallery-section {
-      margin: 70px 0 48px 0;
-      width: 90vw; max-width: 1200px; margin-left:auto; margin-right:auto;
-      background: #fff; border-radius: 18px; box-shadow:0 0 12px #1a181c22; padding:32px 18px;
+      margin: 60px 0 34px 0;
+      width: 93vw;
+      max-width: 980px;
+      margin-left:auto;
+      margin-right:auto;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow:0 2px 8px #18142522;
+      padding:26px 18px 18px 18px;
     }
-    .gallery-title { font-size:1.3rem; font-weight:800; color:#3e3192; margin-bottom:25px;}
-    .gallery-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(200px,1fr)); gap:28px;}
-    .gallery-img { width:100%; border-radius:11px; box-shadow:0 4px 18px #979fd522; display:block;}
-    @media (max-width:1200px) { .gallery-section{padding:24px 6vw;} .grid{width:100%;}}
-    @media (max-width:900px) { nav{padding:13px 12px;} .hero-content{padding:32px 8vw;} }
-    @media (max-width:700px) { .hero-content{width:98vw;min-width:inherit;padding:22px 0;} }
+    .gallery-title { font-size:1.2rem; font-weight:800; color:#3e3192; margin-bottom:25px;}
+    .gallery-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:22px;}
+    .gallery-img { width:100%; border-radius:8px; box-shadow:0 4px 18px #979fd522; display:block;}
+    @media (max-width:1050px) { .laptop-screen{width:98vw;} .container-main{max-width:98vw;} }
+    @media (max-width:900px) { .laptop-screen{border-radius:30px;} .sale-header{font-size:2.2rem;} }
+    @media (max-width:650px) {
+      .laptop-screen{width:99vw;border-radius:16px;}
+      .sale-row{padding:0 12px;}
+      .container-main{margin:18px auto 0 auto;}
+    }
   </style>
 </head>
 <body>
-  <nav>
-    <div class="logo">GuidanceX</div>
-    <div>
-      <a href="/">Home</a>
-      <a href="/topics">Courses</a>
-      <a href="/pricing">Pricing</a>
-      <a href="/about">About</a>
-      <a href="/help">Help</a>
-    </div>
-  </nav>
-
-  <!-- Sale + Countdown Hero Section -->
-  <section class="hero">
-    <div class="hero-content">
-      <div class="logo-badge">LO:GO</div>
-      <img src="https://cdn-icons-png.flaticon.com/512/6134/6134065.png" class="side-img left" alt="camera"/>
-      <img src="https://cdn-icons-png.flaticon.com/512/3449/3449772.png" class="side-img right" alt="drone"/>
-      <div class="hero-title-main">NEW YEAR SALE!</div>
-      <div class="hero-offer">offer <span style="font-weight:800;">ends in</span></div>
-      <div class="countdown-timer" id="countdown">
-        <span class="num" id="days">00</span>
-        <span class="num" id="hours">00</span>
-        <span class="num" id="minutes">00</span>
-        <span class="num" id="seconds">00</span>
+  <div class="container-main">
+    <!-- Navigation -->
+    <nav>
+      <div class="logo">GuidanceX</div>
+      <div>
+        <a href="/">Home</a>
+        <a href="/topics">Courses</a>
+        <a href="/pricing">Pricing</a>
+        <a href="/about">About</a>
+        <a href="/help">Help</a>
       </div>
-      <div class="countdown-labels">
-        <span>Days</span>
-        <span>Hours</span>
-        <span>Minutes</span>
-        <span>Seconds</span>
+    </nav>
+
+    <!-- Laptop Mockup Area -->
+    <div class="page-mockup" style="margin-top:64px;">
+      <div class="laptop-frame">
+        <div class="laptop-screen">
+          <div class="sale-badge">GuidanceX</div>
+          <div class="sale-header">NEW YEAR SALE!</div>
+          <div class="sale-row">
+            <img src="https://cdn-icons-png.flaticon.com/512/6134/6134065.png"
+              class="sale-img-feature" style="background:#25205a;" alt="Coding/Camera"/>
+            <div class="sale-details">
+              <div class="offer">Offer ends in</div>
+              <div class="timer-title">Limited Time Only!</div>
+              <div class="countdown-row" id="countdown">
+                <span class="timer-box" id="days">00</span>
+                <span class="timer-box" id="hours">00</span>
+                <span class="timer-box" id="minutes">00</span>
+                <span class="timer-box" id="seconds">00</span>
+              </div>
+              <div class="timer-label-row">
+                <span>Days</span><span>Hours</span><span>Minutes</span><span>Seconds</span>
+              </div>
+            </div>
+            <img src="https://cdn-icons-png.flaticon.com/512/3449/3449772.png"
+              class="sale-img-feature right" alt="Marketing/Drone"/>
+          </div>
+        </div>
       </div>
     </div>
-  </section>
-
-  <!-- Courses List -->
-  <div class="section-title">Check our <span style="color:#6a2ebf">special products</span></div>
-  <section class="courses-section">
+    <!-- Courses Grid -->
+    <div class="section-title">Choose Your Track and Start Learning</div>
     <div class="grid">
-      <!-- Fill with your 5 real courses below -->
-      <div class="course-card" onclick="window.location='/topic/Business Strategy'">
-        <i class="course-icon bi bi-building"></i>
-        <div class="course-title">Business Strategy</div>
-        <div class="course-desc">Master the foundations of business decision-making, market analysis, and growth tactics.</div>
+      <div class="course-card" onclick="window.location='/topic/Coding Fundamentals'">
+        <i class="course-icon bi bi-code-slash"></i>
+        <div class="course-title">Coding Fundamentals</div>
+        <div class="course-desc">Clear C programming, algorithms, and hands-on projects to jumpstart coding mastery.</div>
         <button class="btn">View Tracks</button>
       </div>
-      <div class="course-card" onclick="window.location='/topic/Design Thinking'">
+      <div class="course-card" onclick="window.location='/topic/Design & Animation'">
         <i class="course-icon bi bi-brush"></i>
-        <div class="course-title">Design Thinking</div>
-        <div class="course-desc">Unlock creativity with hands-on UI/UX, wireframes, and product design workshops.</div>
+        <div class="course-title">Design & Animation</div>
+        <div class="course-desc">Learn professional video editing, graphic design, and logo creation from basics to pro.</div>
+        <button class="btn">View Tracks</button>
+      </div>
+      <div class="course-card" onclick="window.location='/topic/Marketing'">
+        <i class="course-icon bi bi-megaphone"></i>
+        <div class="course-title">Marketing</div>
+        <div class="course-desc">Master digital marketing, brand strategy, and growth hacks for career and business.</div>
         <button class="btn">View Tracks</button>
       </div>
       <div class="course-card" onclick="window.location='/topic/Web Development'">
-        <i class="course-icon bi bi-code-slash"></i>
+        <i class="course-icon bi bi-window-stack"></i>
         <div class="course-title">Web Development</div>
-        <div class="course-desc">Frontend and backend: Learn HTML, CSS, JavaScript, and the full-stack workflow.</div>
+        <div class="course-desc">Learn HTML, CSS, JavaScript, and build modern, responsive websites and apps.</div>
         <button class="btn">View Tracks</button>
       </div>
       <div class="course-card" onclick="window.location='/topic/Personal Growth'">
         <i class="course-icon bi bi-magic"></i>
         <div class="course-title">Personal Growth</div>
-        <div class="course-desc">Improve skills, time management, and mindset with actionable self-development lessons.</div>
-        <button class="btn">View Tracks</button>
-      </div>
-      <div class="course-card" onclick="window.location='/topic/Freelancing'">
-        <i class="course-icon bi bi-person-workspace"></i>
-        <div class="course-title">Freelancing</div>
-        <div class="course-desc">Build your brand, manage clients, and create a successful freelance career!</div>
+        <div class="course-desc">Unlock productivity, study strategies, and self-development for lifelong success.</div>
         <button class="btn">View Tracks</button>
       </div>
     </div>
-  </section>
-
-  <!-- Gallery Section -->
-  <div class="gallery-section">
-    <div class="gallery-title">Gallery</div>
-    <div class="gallery-grid">
-      <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308" alt="Gallery" class="gallery-img"/>
-      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb" alt="Gallery" class="gallery-img"/>
-      <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca" alt="Gallery" class="gallery-img"/>
-      <img src="https://images.unsplash.com/photo-1519985176271-adb1088fa94c" alt="Gallery" class="gallery-img"/>
-      <img src="https://images.unsplash.com/photo-1465101178521-cce3c7f1b103" alt="Gallery" class="gallery-img"/>
+    <!-- Gallery Section -->
+    <div class="gallery-section">
+      <div class="gallery-title">Gallery</div>
+      <div class="gallery-grid">
+        <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308" alt="Gallery" class="gallery-img"/>
+        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb" alt="Gallery" class="gallery-img"/>
+        <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca" alt="Gallery" class="gallery-img"/>
+        <img src="https://images.unsplash.com/photo-1519985176271-adb1088fa94c" alt="Gallery" class="gallery-img"/>
+        <img src="https://images.unsplash.com/photo-1465101178521-cce3c7f1b103" alt="Gallery" class="gallery-img"/>
+      </div>
     </div>
   </div>
 
   <script>
-    // Countdown timer JS (Set your end date!)
-    const endDate = new Date('2026-01-05T23:59:59'); // Set your sale end date/time
+    // Sale Countdown JS - choose any sale end date you want!
+    const endDate = new Date('2025-12-31T23:59:59');
     function updateCountdown(){
       const now = new Date();
       const diff = endDate - now;
@@ -253,8 +308,7 @@
       document.getElementById('minutes').textContent = String(Math.floor(diff/6e4)%60).padStart(2,'0');
       document.getElementById('seconds').textContent = String(Math.floor(diff/1e3)%60).padStart(2,'0');
     }
-    setInterval(updateCountdown,1000);
-    updateCountdown();
+    setInterval(updateCountdown,1000); updateCountdown();
   </script>
 </body>
 </html>
