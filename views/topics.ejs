@@ -1,6 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <title>GuidanceX | Dive Into Learning</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" rel="stylesheet"/>
+  <style>
+    body {
+      margin: 0; padding: 0; min-height: 100vh;
+      font-family: 'Montserrat', 'Poppins', Arial, sans-serif;
+      background: #e6e1f6;
+      color: #eae6f6;
+    }
+    .main-section {
+      background: #373545;
+      border-radius: 18px;
+      max-width: 1050px;
+      margin: 26px auto;
+      padding: 0;
+      box-shadow: 0 6px 44px #22203a60;
+      display: flex; flex-direction: row; gap: 44px;
+    }
+    .info-block {
+      flex: 1.1;
+      padding: 56px 36px;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .app-nav {
+      display: flex;
+      gap: 36px;
+      justify-content: flex-start;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+    .app-nav a {
+      color: #b3b5db; font-weight: 600;
+      text-decoration: none; font-size: 1.02rem; letter-spacing: 0.04em;
+      padding: 0 6px; transition: color 0.17s;
+      border-bottom: 2px solid transparent;
+    }
+    .app-nav a.active, .app-nav a:hover {
+      color: #a58bf5; border-bottom: 2px solid #a58bf5;
+    }
+    .cta-row {
+      margin-top: 48px;
+      display: flex; gap: 24px;
+      flex-wrap: wrap;
+      align-items: center;
+      font-size: 1.06rem;
+    }
+    .cta-box {
+      background: #262436;
+      border-radius: 16px;
+      padding: 18px 28px;
+      min-width: 170px;
+      color: #f9f7ff;
+      box-shadow: 0 2px 12px #1e182b22;
+      font-weight: 600;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .cta-box i {
+      font-size: 1.55rem; color: #a58bf5; margin-right: 10px;
+    }
+    .main-title {
+      font-size: 2.2rem; font-weight: 900;
+      letter-spacing: 0.02em;
+      color: #a58bf5;
+      margin-bottom: 12px;
+    }
+    .main-title strong { color: #ffffff; }
+    .subtitle {
+      font-size: 1.3rem; font-weight: 700; color: #f8e666; margin-bottom: 8px;
+    }
+    .desc {
+      font-size: 1rem; color: #bcbad9; margin-bottom: 22px;
+      font-weight: 500;
+    }
+    .build-btn {
+      background: #7b6fe2;
+      color: #fff; border: none; border-radius: 13px;
+      padding: 12px 42px 12px 26px;
+      font-weight: 700; font-size:1.09rem;
+      margin-top: 10px; margin-right: 10px;
+      box-shadow: 0 2px 8px #7b6fe235; transition: background 0.2s;
+      position: relative; cursor: pointer;
+    }
+    .build-btn:hover {
+      background: #443a7b;
+      color: #ffebe6;
+    }
+    .build-btn::after {
+      content: '\2192';
+      margin-left: 15px;
+      font-size: 1.1rem;
+      position: absolute; right: 22px; top: 52%;
+      transform: translateY(-52%);
+      color: #fff4;
+    }
+    .vr-img-block {
+      flex: 1;
+      display: flex; align-items: center; justify-content: center;
+      padding: 36px 0; margin-right:8px;
+    }
+    .vr-img-box {
+      border-radius: 28px;
+      background: linear-gradient(140deg,#a78afc 60%, #7b6fe2 100%);
+      box-shadow: 0 4px 32px #761edc44;
+      padding: 12px;
+      width: 340px; height: 314px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .vr-img-box img {
+      max-width: 90%; width:220px; border-radius:20px;
+      box-shadow: 0 8px 28px #291e3f77;
+    }
+    @media (max-width:980px){
+      .main-section{flex-direction:column; gap:8px;}
+      .vr-img-block{justify-content:center;}
+      .vr-img-box{margin:0 auto;}
+      .info-block{padding:36px;}
+    }
+    @media (max-width:600px){
+      .main-section{padding:0;}
+      .cta-row{flex-direction:column;gap:18px;}
+      .cta-box{min-width:90vw;}
+      .main-title{font-size:1.3rem;}
+    }
+  </style>
+</head>
+<body>
+  <div class="main-section">
+    <div class="info-block">
+      <div class="app-nav">
+        <a href="/" class="">About</a>
+        <a href="/topics" class="active">Courses</a>
+        <a href="/help">Services</a>
+        <a href="/">Technologies</a>
+        
+        <a href="/help" class="build-btn" style="background:#373545;color:#a58bf5;border:2px solid #a58bf5;">Contact Us</a>
+        <a href="/signup" class="build-btn">Join GuidanceX</a>
+      </div>
+      <div class="main-title">
+        Dive Into The Depths Of <strong>Learning & Growth</strong>
+      </div>
+      <div class="subtitle">Unlock coding, marketing, and creativity &mdash; Experience expert-led courses!</div>
+      <div class="desc">
+        "Step Into a Growth Reality &mdash; Explore C programming, web, design, and more as never before."
+      </div>
+      <button class="build-btn" onclick="window.location='/topics'">Build Your Career</button>
+
+      <div class="cta-row">
+        <div class="cta-box"><i class="bi bi-geo-alt"></i>SRMAP Campus, India</div>
+        <div class="cta-box"><i class="bi bi-telephone"></i>(+91) 80000-12345</div>
+        <div class="cta-box"><i class="bi bi-chat-right-dots"></i>support@guidancex.com</div>
+      </div>
+    </div>
+    <div class="vr-img-block">
+      <div class="vr-img-box">
+        <!-- You can use your own course illustration here -->
+        <img src="https://images.unsplash.com/photo-1535223289827-42f1e9919769?auto=format&fit=crop&w=400&q=80" alt="Learning VR Coding" />
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
   <title>GuidanceX | Code Realm</title>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
