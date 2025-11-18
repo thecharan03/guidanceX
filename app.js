@@ -186,5 +186,10 @@ app.get('/help', (req, res) => {
 
 app.use(express.static("public"));
 
+app.get("/", (req, res) => {
+  res.render("index");
+});
+
+
 
 app.listen(PORT, () => console.log(`Server running at http://localhost:${PORT}`));
