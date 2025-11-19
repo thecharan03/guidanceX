@@ -4,230 +4,40 @@
   <title><%= topic %> Subtopics | GuidanceX</title>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!-- Bootstrap 5 CSS CDN -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <!-- Bootstrap Icons CDN -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" rel="stylesheet" />
   <style>
-    body {
-      background: url('https://png.pngtree.com/thumb_back/fh260/background/20210123/pngtree-purple-simple-solid-color-gradient-background-image_539434.jpg') no-repeat center center fixed;
-      background-size: cover;
-      color: #f6edff;
-      font-family: 'Montserrat', Arial, sans-serif;
-      min-height: 100vh;
-      margin: 0;
-      padding-top: 91px; /* For fixed navbar */
-    }
-    /* --- Modern VIOLET NAVBAR matching your palette --- */
-    .navbar-custom {
-      background: linear-gradient(90deg,#6332bd,#8647e8 60%,#b18ff4 100%);
-      box-shadow: 0 4px 32px #7e4bda44;
-      border-bottom: 2px solid #a078d054;
-      position: fixed;
-      width: 100vw;
-      top: 0;
-      left: 0;
-      z-index: 1050;
-      padding: 0 42px;
-      height: 87px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .navbar-logo {
-      display: flex; align-items: center; gap: 13px;
-      font-family: 'Orbitron', Arial, sans-serif;
-      color: #fff;
-      font-weight: 800;
-      font-size: 1.45rem;
-      letter-spacing: .10em;
-      text-shadow: 0 3px 20px #2f016ea2;
-    }
-    .navbar-logo svg { width: 36px; height: 36px; filter: drop-shadow(0 1px 3px #fff9);}
-    .navbar-links {
-      display: flex; gap: 30px;
-    }
-    .navbar-links a {
-      color: #a264d5;
-      text-shadow: 0 2px 9px #45395f54;
-      font-weight: 700;
-      font-size: 1.16rem;
-      text-decoration: none;
-      letter-spacing: 0.04em;
-      border-radius: 18px;
-      padding: 10px 20px;
-      transition: background 0.15s, color 0.15s, box-shadow 0.15s;
-    }
-    .navbar-links a:hover, .navbar-links a.active {
-      background: #fff6;
-      color: #3e1471;
-      box-shadow: 0 2px 16px #fff5;
-      text-decoration: none;
-    }
-    .navbar-action {
-      background: linear-gradient(90deg,#e9e6fa,#aa96fd 70%);
-      color: #5421b4;
-      border: none;
-      font-weight: 900;
-      font-size: 1rem;
-      border-radius: 15px;
-      padding: 9px 25px;
-      margin-left: 9px;
-      letter-spacing: .03em;
-      cursor: pointer;
-      box-shadow: 0 2px 14px #fff8;
-      transition: background 0.18s, color 0.18s;
-    }
-    .navbar-action:hover {
-      background: #fff;
-      color: #52237f;
-      box-shadow: 0 4px 18px #fff2;
-    }
-    main.container {
-      max-width: 1160px;
-    }
-    h1.page-title {
-      font-family: 'Orbitron', Arial, sans-serif;
-      font-weight: 800;
-      font-size: 2.04rem;
-      margin-bottom: 32px;
-      letter-spacing: 0.1em;
-      color: #e7c7ff;
-      text-shadow: 0 0 18px #9a77e792;
-      text-align: center;
-    }
-    .subtopics-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-      gap: 33px;
-      align-items: stretch;
-      margin-top: 8px;
-    }
-    .project-card {
-      background: rgba(90,50,170,0.97);
-      border-radius: 26px;
-      box-shadow: 0 4px 30px #791ce099, 0 2px 12px #e7c7ff33;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      transition: transform 0.2s, box-shadow 0.2s;
-      overflow: hidden;
-      cursor: pointer;
-      min-height: 348px;
-      padding: 0 0 21px 0;
-    }
-    .project-card:hover {
-      transform: scale(1.045);
-      box-shadow: 0 9px 42px #a35cf28c, 0 4px 18px #fff0;
-      background: rgba(110,43,191,0.97);
-    }
-    .project-thumb {
-      width: 100%;
-      height: 160px;
-      object-fit: cover;
-      border-radius: 26px 26px 0 0;
-      background: #aaa6dd;
-      filter: brightness(0.97) contrast(1.04) grayscale(0.12);
-      border-bottom: 2px solid #a57dff44;
-      margin-bottom: 0px;
-    }
-    .project-title {
-      font-size: 1.28rem;
-      font-family:'Orbitron',Arial,sans-serif;
-      font-weight:700;
-      color: #ffdcf7;
-      margin: 22px 0 6px 0;
-      letter-spacing: 0.025em;
-      text-shadow: 0 0 4px #fff2;
-    }
-    .project-expert {
-      font-size: 1.01rem;
-      font-weight: 600;
-      color: #edb9fd;
-      margin-bottom: 7px;
-      letter-spacing: 0.04em;
-    }
-    .project-desc {
-      font-size: 1.03rem;
-      color: #f2eafd;
-      margin-bottom: 12px;
-      padding: 0 16px;
-      line-height: 1.55;
-      flex-grow: 1;
-      min-height:59px;
-    }
-    .price-tag {
-      color: #fff3c1;
-      font-size: 1.09rem;
-      margin-bottom: 11px;
-      font-weight: 700;
-      letter-spacing: 0.025em;
-    }
-    .project-action {
-      background: linear-gradient(140deg,#ffc6fb,#a67def 80%);
-      border: none;
-      border-radius: 15px;
-      font-weight: 700;
-      font-size: 1.08rem;
-      padding: 13px 28px;
-      color: #6d23a7;
-      width: 89%;
-      max-width: 190px;
-      cursor: pointer;
-      margin: 0 auto 0 auto;
-      box-shadow: 0 2px 14px #f4d9fe33;
-      transition: background 0.18s, color 0.18s;
-    }
-    .project-action:hover {
-      background: linear-gradient(90deg,#c17fff,#fff0ff 100%);
-      color: #5e348b;
-    }
-    @media (max-width: 900px) {
-      .navbar-custom { padding: 0 10px; height: auto;}
-      .navbar-links a { padding: 7px 10px; font-size: 1rem;}
-      .navbar-logo { font-size: 1rem;}
-    }
-    @media (max-width: 768px) {
-      .subtopics-grid { grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap:20px;}
-      .project-thumb {height:120px;}
-      .project-title {font-size:1.07rem;}
-    }
+    body { background: #7046af; color: #fff; font-family: 'Montserrat', Arial, sans-serif; }
+    .subtopics-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:34px; margin:42px 2vw; }
+    .project-card { background: #4e27a4; border-radius:22px; box-shadow:0 6px 22px #3908593d; padding:20px 16px; text-align:center; }
+    .project-card:hover { background:#7b2faf; transform:scale(1.04);}
+    .project-title { font-size:1.17rem; font-weight:700; color:#ffd2e7; margin:15px 0 6px 0; }
+    .project-expert { color:#ffbbec; font-size:1rem; margin-bottom:7px;}
+    .project-desc { color:#fff; margin-bottom:12px;}
+    .price-tag { color:#fff3c1; margin-bottom:8px;}
+    .project-action { background:linear-gradient(90deg,#ffd2e7,#a77efa 80%); border:none; border-radius:15px; font-weight:700; font-size:1.07rem; padding:11px 28px; color:#541178; cursor:pointer;}
+    .project-action:hover { background: linear-gradient(90deg,#c17fff,#fff4ff); color:#fff;}
   </style>
 </head>
 <body>
-  <!-- Modern violet NAV BAR -->
-  <div class="navbar-custom">
-    <div class="navbar-logo">
-      <svg viewBox="0 0 44 30" fill="none"><rect x="6" y="6" width="32" height="8" rx="3.3" fill="#ffdcf7" stroke="#fff" stroke-width="2"/><rect x="12" y="15" width="20" height="7" rx="3.1" fill="#32223a" stroke="#ffdcf7" stroke-width="1"/><polygon points="15,19 29,25 22,28 36,29 22,20" fill="#fff" stroke="#ffdcf7" stroke-width="1"/><circle cx="22" cy="10" r="3" fill="#fff" stroke="#ffdcf7" stroke-width="2"/></svg>
-      GuidanceX
-    </div>
-    <div class="navbar-links">
-      <a href="/topics" >Courses</a>
-      <a href="/about">About</a>
-      <a href="/help">Help</a>
-      <a href="/login">Log In</a>
-    </div>
-    <a href="/topics"><button class="navbar-action">Explore More</button></a>
-  </div>
-  <main class="container mt-5 pt-4">
-    <h1 class="page-title">Explore <%= topic %> Courses</h1>
+  <main>
+    <h1 style="text-align:center;margin:48px 0 32px 0;">Explore <%= topic %> Courses</h1>
     <div class="subtopics-grid">
       <% subtopics.forEach((sub, i) => { %>
-        <div class="project-card" tabindex="0" role="button" onclick="window.location='/course/<%= encodeURIComponent(topic) %>/<%= encodeURIComponent(sub.name) %>'">
-          <img class="project-thumb" src="https://static.vecteezy.com/system/resources/previews/036/594/092/original/man-empty-avatar-photo-placeholder-for-social-networks-resumes-forums-and-dating-sites-male-and-female-no-photo-images-for-unfilled-user-profile-free-vector.jpg %>" alt="Project Thumb"/>
+        <div class="project-card">
           <div class="project-title"><%= sub.name %></div>
           <div class="project-expert">by <%= sub.expert %> (<%= sub.initials %>)</div>
           <div class="project-desc"><%= sub.desc %></div>
           <div class="price-tag">₹<%= sub.price %></div>
+          <a href="/course/<%= encodeURIComponent(topic) %>/<%= encodeURIComponent(sub.name) %>">
+            <button class="project-action" type="button">View Details</button>
+          </a>
           <a href="/buy/<%= encodeURIComponent(topic) %>/<%= encodeURIComponent(sub.name) %>">
-            <button class="project-action" type="button">Buy &amp; View</button>
+            <button class="project-action mt-2" type="button">Buy &amp; View</button>
           </a>
         </div>
       <% }) %>
     </div>
   </main>
-  <!-- Bootstrap JS (for dropdown/popup, if needed) -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
