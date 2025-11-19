@@ -1,263 +1,248 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <title>Payment | GuidanceX</title>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" rel="stylesheet" />
   <style>
     body {
-      background: #111215;
-      color: #fafbfc;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: radial-gradient(circle at 65% 15%, #ee2d53 0%, #a100ff 100%);
       min-height: 100vh;
       margin: 0;
+      color: #222245;
+      font-family: 'Montserrat', Arial, sans-serif;
     }
-    .page-container {
-      min-height: 100vh;
+    .container-payment {
+      max-width: 1000px;
+      margin: 40px auto;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 10px 48px #cc16ff33, 0 2px 6px #67017734;
       display: flex;
-      align-items: center;
-      justify-content: center;
       padding: 0;
+      overflow: hidden;
     }
-    .card-shadow {
-      background: #18191c;
-      border-radius: 20px;
-      box-shadow: 0 4px 32px rgba(0,0,0,0.14);
-      width: 1100px;
-      max-width: 99vw;
-      display: flex;
-      flex-wrap: wrap;
-    }
-    .course-panel {
-      flex: 1 1 0;
-      min-width: 350px;
-      padding: 38px 32px 38px 44px;
-      background: #18191c;
-      border-right: 1px solid #232323;
+    .pay-left {
+      flex: 1.05;
+      padding: 36px 30px 36px 36px;
+      background: #fff;
+      border-radius: 16px 0 0 16px;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      justify-content: flex-start;
+      border-right: 2px solid #e6d0fc55;
+      min-width: 300px;
+      box-sizing: border-box;
     }
-    .course-title-row {
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      margin-bottom: 1.5rem;
-    }
-    .course-name {
-      font-size: 2rem;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      color: #fff;
-    }
-    .course-price {
-      color: #41bfff;
-      font-size: 1.35rem;
-      font-weight: 800;
-    }
-    .course-image {
-      border-radius: 15px;
-      width: 210px;
-      height: 130px;
+    .course-img {
+      border-radius: 10px;
+      width: 110px; height: 110px;
       object-fit: cover;
-      margin-bottom: 2rem;
-      background: #222;
-      box-shadow: 0 2px 16px #12121388;
+      background: #f3eaff;
+      margin-bottom: 18px;
+      box-shadow: 0 5px 22px #a68dfc30;
       display: block;
     }
-    .expert-row {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 1.8rem;
+    .course-title {
+      font-size: 1.28rem;
+      font-weight: 900;
+      color: #7b22b3;
+      letter-spacing: 0.06em;
+      margin-bottom: 7px;
+      margin-top: 6px;
     }
-    .expert-photo {
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid #41bfff;
-    }
-    .expert-name {
-      font-size: 1.18rem;
-      font-weight: 700;
-      color: #41bfff;
-      letter-spacing: 0.04em;
-    }
-    .course-desc {
-      font-size: 1.07rem;
-      line-height: 1.6;
-      color: #e0e2ea;
-      margin-bottom: 1.5rem;
-    }
-    .course-duration {
-      color: #c1c8d4;
+    .expert-by {
       font-size: 1rem;
-      font-weight: 500;
-      margin-bottom: 1.5rem;
+      color: #ff195c;
+      font-family: 'Montserrat', Arial, sans-serif;
+      margin-bottom: 9px;
+      font-weight: 700;
     }
-    .payment-panel {
-      flex: 1 1 0;
-      min-width: 370px;
-      padding: 38px 44px;
-      background: #18191c;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: flex-start;
+    .course-detail {
+      font-size: 1.07rem;
+      color: #6a488b;
+      margin-bottom: 13px;
     }
-    .payment-title {
-      font-size: 1.35rem;
-      font-weight: 800;
-      color: #fff;
-      margin-bottom: 1.6rem;
-      letter-spacing: 0.08em;
-    }
-    .form-label, .summary-label {
-      color: #b4b4c4;
+    .course-meta {
+      background: #fae8ff;
+      border-radius: 13px;
+      color: #7b22b3;
+      font-size: 0.99rem;
       font-weight: 600;
-    }
-    .form-control, .form-select {
-      background: #141418;
-      color: #f0f1f3;
-      border: none;
-      border-radius: 9px;
-      font-size: 1.02rem;
-      padding: 0.8rem 1rem;
+      padding: 5px 13px;
       margin-bottom: 15px;
+      display: inline-block;
     }
-    .form-control:focus, .form-select:focus {
-      background: #191920;
+    .price-big {
+      font-size: 2.1rem; font-weight: 900; color: #ee2d53; letter-spacing: 0.11em; margin-bottom:22px;
+      margin-top: 9px;
+    }
+    .duration {
+      font-weight: 700;
+      font-size: 0.96rem;
+      color: #7b22b3;
+      margin-bottom: 12px;
+    }
+    /* -- Credit Card Area -- */
+    .pay-right {
+      flex: 1.2;
+      padding: 38px 34px 34px 26px;
+      background: linear-gradient(135deg, #eeecff 70%, #e0d4fa 100%);
+      border-radius: 0 16px 16px 0;
+      display: flex; flex-direction: column;
+      justify-content: center;
+    }
+    .card-title-row {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 18px;
+    }
+    .section-title {
+      font-size: 1.22rem; font-weight: 900; color:#6036a9; letter-spacing:0.08em;
+    }
+    .card-container {
+      background: linear-gradient(120deg,#3b345f 60%,#3643a2 100%);
+      border-radius: 20px;
       color: #fff;
+      padding: 20px 28px 22px 28px;
+      box-shadow: 0 6px 22px #7e53d275;
+      margin-bottom: 17px;
+      width: 97%;
+      max-width: 380px;
+      align-self: center;
+      position: relative;
+    }
+    .card-provider {
+      position: absolute; top: 15px; right: 25px;
+      font-size: 1.13rem; color: #fff7;
+      letter-spacing: 0.05em;
+      font-weight: 700;
+      display: flex; align-items: center; gap:5px;
+    }
+    .card-provider .bi { font-size: 1.52rem; color: #ffc107;}
+    .card-num-row {display:flex; gap:11px; font-size:1.38rem; letter-spacing: 0.19em; margin: 23px 0 12px 0;}
+    .input-credit {margin-bottom:13px;}
+    .pay-form label {
+      font-size: 1rem; font-weight: 700; color: #7b22b3; margin-bottom: 6px; display: block;
+    }
+    .pay-form input, .pay-form select {
+      width: 100%; min-width: 0;
+      padding: 10px 12px;
+      border-radius: 8px;
+      border: 1px solid #dbb9fc;
+      margin-bottom: 17px;
+      background: #f7f1fd;
+      color: #381d59;
+      font-size: 1.01rem;
+      font-weight: 500;
+      transition: border-color .19s;
+    }
+    .pay-form input:focus, .pay-form select:focus {
+      border-color: #ee2d53;
       outline: none;
-      box-shadow: 0 0 6px #41bfff;
-      border: none;
+      box-shadow: 0 2px 12px #ee2d5333;
+      background:#fff;
     }
-    .form-control::placeholder {
-      color: #86868a;
-      opacity: .8;
+    .pay-form input[type="password"] {letter-spacing: 0.21em;}
+    .pay-summary-row {
+      display: flex; align-items: center; justify-content: space-between;
+      font-size: 1.18rem; font-weight: 700; color: #7652a7; margin-bottom: 4px;
     }
-    .summary-block {
-      background: #141418;
-      padding: 1.1rem 1rem;
-      border-radius: 12px;
-      margin-top: 1.3rem;
-      margin-bottom: 1.4rem;
-      width: 100%;
+    .total-row {
+      font-size: 1.42rem; color: #ee2d53; font-weight: 900; margin-top: 16px; margin-bottom:10px;
     }
-    .summary-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      color: #d3d3db;
-      font-size: 1.04rem;
-      margin-bottom: .38rem;
-    }
-    .summary-row.total {
+    .pay-btn {
+      width: 100%; margin-top: 9px;
+      padding: 17px 0;
+      font-size: 1.22rem;
       font-weight: 900;
-      color: #41bfff;
-      font-size: 1.2rem;
-      letter-spacing: 0.07em;
-      margin-top: .62rem;
-    }
-    .btn-pay {
-      width: 100%;
-      padding: 1rem 0;
-      font-size: 1.18rem;
-      font-weight: 900;
-      background: linear-gradient(90deg, #41bfff 40%, #0cf2ff 100%);
-      color: #18191c;
+      background: linear-gradient(90deg, #32bbfb 40%, #458ff7 100%);
       border: none;
-      border-radius: 40px;
-      box-shadow: 0 8px 32px #41bfff48;
-      margin-top: .3rem;
-      transition: background 0.25s, box-shadow 0.28s;
+      color: #fff;
+      border-radius: 16px;
+      box-shadow: 0 8px 28px #32bbfb22;
+      letter-spacing: 0.09em;
+      cursor: pointer; transition: 0.21s;
     }
-    .btn-pay:hover {
-      background: linear-gradient(90deg, #0cf2ff 40%, #41bfff 100%);
-      box-shadow: 0 12px 42px #41bfff60;
+    .pay-btn:hover {
+      background: linear-gradient(90deg, #458ff7 40%, #32bbfb 100%);
+      color: #fff2fb;
     }
-    @media (max-width: 950px) {
-      .card-shadow { flex-direction: column; width: 100vw; min-width: 0; border-radius: 0;}
-      .course-panel, .payment-panel { width: 100%; padding: 24px 10vw;}
-      .course-panel {border-right: none;}
-      .course-image { width:100%; height:120px; }
-    }
-    @media (max-width:650px) {
-      .card-shadow { width: 100vw; }
-      .course-panel, .payment-panel { padding: 16px 6vw;}
-    }
+    @media (max-width:1020px){.container-payment{flex-direction:column;}}
+    @media (max-width:620px){.container-payment{min-width:0;padding:0 2vw;}.pay-right,.pay-left{border-radius:16px;} .pay-right{padding:22px 2vw;}.pay-left{padding:18px 2vw;}}
   </style>
 </head>
 <body>
-  <div class="page-container">
-    <div class="card-shadow">
-      <!-- LEFT: Course details + expert -->
-      <section class="course-panel">
-        <div class="course-title-row">
-          <span class="course-name"><%= course.name %></span>
-          <span class="course-price">₹<%= course.price %></span>
+  <div class="container-payment">
+    <!-- LEFT: course details -->
+    <div class="pay-left">
+      <img class="course-img"
+        src="<%= course.image || 'https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=1200' %>"
+        alt="Course Cover" />
+      <div class="course-title"><%= course.name %></div>
+      <div class="expert-by">by <%= course.expertName %></div>
+      <div class="price-big">₹<%= course.price %></div>
+      <div class="duration">Duration: <%= course.duration %> days</div>
+      <div class="course-meta">Mode: Online Class</div>
+      <div class="course-detail"><%= course.description %></div>
+    </div>
+    <!-- RIGHT: credit card faux/card, payment fields -->
+    <div class="pay-right">
+      <div class="card-title-row mb-3">
+        <div class="section-title">Credit Card</div>
+        <div style="color:#989dc5; font-size:.95rem; font-weight:600;">Change Payment method</div>
+      </div>
+      <div class="card-container">
+        <div class="card-provider">
+          mastercard <i class="bi bi-credit-card-2-front-fill"></i>
         </div>
-        
-        <img 
-          src="<%= course.image || 'https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=1200' %>" 
-          alt="Course Image" 
-          class="course-image"
-/>
-
-        <div class="expert-row">
-  <img 
-    src="<%= course.expertPhoto || 'https://images.unsplash.com/photo-1595152772835-219674b2a8a6?q=80&w=500' %>" 
-    alt="Expert" 
-    class="expert-photo"
-  />
-  <span class="expert-name"><%= course.expertName %></span>
-</div>
-
+        <div style="margin-top:19px; margin-bottom:2px;">
+          <span style="font-weight:700;">NUMBER</span>
+          <div class="card-num-row"><span>****</span><span>5678</span><span>****</span><span>1212</span></div>
         </div>
-        <div class="course-desc"><%= course.description %></div>
-        <div class="course-duration">Duration: <%= course.duration %> 78 days</div>
-      </section>
-      <!-- RIGHT: Payment form + summary -->
-      <section class="payment-panel">
-        <div class="payment-title">Payment Details</div>
-        <form method="POST" action="/process-payment" aria-label="Payment Form">
-          <label class="form-label" for="email">Email address</label>
-          <input type="email" class="form-control" id="email" name="email" placeholder="Your email" required/>
-          <label class="form-label" for="card">Card details</label>
-          <input type="text" class="form-control" id="card" name="card" placeholder="Card Number" required/>
-          <div class="row">
-            <div class="col-md-6">
-              <input type="month" class="form-control" name="expMonth" placeholder="MM/YY" required/>
-            </div>
-            <div class="col-md-6">
-              <input type="password" class="form-control" name="cvc" placeholder="CVC" required/>
-            </div>
+        <div style="display:flex;justify-content:space-between;">
+          <div>
+            <span style="font-size:0.97rem;font-weight:700;opacity:.58;">NAME</span>
+            <div style="letter-spacing:0.06em; font-weight:700;">{Your Name}</div>
           </div>
-          <label class="form-label" for="cardName">Cardholder name</label>
-          <input type="text" class="form-control" id="cardName" name="cardName" placeholder="Full name" required/>
-          <label class="form-label" for="billingCountry">Billing address</label>
-          <select class="form-select" id="billingCountry" name="billingCountry" required>
-            <option value="">Country</option>
-            <option value="India">India</option>
-            <option value="USA">USA</option>
-            <!-- Add more countries -->
-          </select>
-          <input type="text" class="form-control" name="address" placeholder="Address" required/>
+          <div>
+            <span style="font-size:0.97rem;font-weight:700;opacity:.58;">EXPIRE DATE</span>
+            <div style="font-weight:700;">02 / 27</div>
+          </div>
+        </div>
+      </div>
 
-          <!-- Summary block -->
-          <div class="summary-block">
-            <div class="summary-row"><span class="summary-label">Subtotal</span><span>₹<%= course.price %></span></div>
-            <div class="summary-row"><span class="summary-label">GST (8%)</span><span>₹<%= Math.round(course.price*0.18) %></span></div>
-            <div class="summary-row total"><span>Total</span><span>₹<%= Math.round(course.price*1.08) %></span></div>
+      <form class="pay-form" method="POST" action="/process-payment" aria-label="Payment Form">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="your@email.com" required/>
+        <label for="ccnum">Card Number</label>
+        <input type="text" id="ccnum" name="ccnum" placeholder="1234 5678 9012 3456" maxlength="19" required />
+        <div class="input-credit" style="display:flex;gap:15px;">
+          <div style="flex:1;">
+            <label for="expdate">Expiry</label>
+            <input type="text" id="expdate" name="expdate" placeholder="MM / YY" maxlength="7" required />
           </div>
-          <button type="submit" class="btn btn-pay">Pay ₹<%= Math.round(course.price*1.08) %></button>
-        </form>
-      </section>
+          <div style="flex:1;">
+            <label for="cvc">CVC</label>
+            <input type="password" id="cvc" name="cvc" placeholder="123" maxlength="4" required/>
+          </div>
+        </div>
+        <label for="cardName">Cardholder Name</label>
+        <input type="text" id="cardName" name="cardName" placeholder="Full Name" required />
+        <label for="billingCountry">Billing Country</label>
+        <select id="billingCountry" name="billingCountry" required>
+          <option value="">Country</option>
+          <option value="India">India</option>
+          <option value="USA">USA</option>
+        </select>
+        <input type="text" name="address" placeholder="Address" required/>
+
+        <!-- Summary block -->
+        <div class="pay-summary-row"><span>Subtotal</span><span>₹<%= course.price %></span></div>
+        <div class="pay-summary-row"><span>GST (18%)</span><span>₹<%= Math.round(course.price*0.18) %></span></div>
+        <div class="pay-summary-row total-row"><span>Total</span><span>₹<%= Math.round(course.price*1.18) %></span></div>
+        <button type="submit" class="pay-btn">PAY NOW</button>
+      </form>
     </div>
   </div>
 </body>
