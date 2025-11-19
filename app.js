@@ -5,6 +5,14 @@ const bodyParser = require("body-parser");
 const app = express();
 const PORT = 3000;
 
+
+app.get("/", (req, res) => {
+  res.render("index", { testimonials });
+});
+
+
+app.set("view engine", "ejs");
+ 
 // Mock data
 const topics = [
   {
