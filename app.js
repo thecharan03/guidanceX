@@ -42,8 +42,8 @@ const topics = [
     name: "Film making",
     desc: "Unlock your creativity and productivity.",
     subtopics: [
-      { name: "Time Management", expert: "Abhay S.", initials: "AS", price: "999", desc: "Techniques for effective life balance. 72 days course" },
-      { name: "Mindfulness", expert: "Rekha S.", initials: "RS", price: "599", desc: "Reduce stress, improve focus.  72 days course" }
+      { name: "film making", expert: "Abhay S.", initials: "AS", price: "999", desc: "Techniques for effective life balance. 72 days course" },
+      { name: "short film", expert: "Rekha S.", initials: "RS", price: "599", desc: "Reduce stress, improve focus.  72 days course" }
     ]
   }
 ];
