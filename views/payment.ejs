@@ -1,245 +1,235 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Payment | GuidanceX</title>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" rel="stylesheet" />
+  <title><%= course.name %> | GuidanceX</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" rel="stylesheet"/>
   <style>
     body {
-      background: radial-gradient(circle at 65% 15%, #ee2d53 0%, #a100ff 100%);
-      min-height: 100vh;
-      margin: 0;
-      color: #222245;
+      background: linear-gradient(115deg, #faf7e9 0%, #fff9f3 60%, #f3def7 100%);
       font-family: 'Montserrat', Arial, sans-serif;
-    }
-    .container-payment {
-      max-width: 1000px;
-      margin: 40px auto;
-      background: #fff;
-      border-radius: 16px;
-      box-shadow: 0 10px 48px #cc16ff33, 0 2px 6px #67017734;
-      display: flex;
-      padding: 0;
-      overflow: hidden;
-    }
-    .pay-left {
-      flex: 1.05;
-      padding: 36px 30px 36px 36px;
-      background: #fff;
-      border-radius: 16px 0 0 16px;
+      color: #222;
+      margin: 0;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
-      border-right: 2px solid #e6d0fc55;
-      min-width: 300px;
-      box-sizing: border-box;
     }
-    .course-img {
-      border-radius: 10px;
-      width: 110px; height: 110px;
-      object-fit: cover;
-      background: #f3eaff;
-      margin-bottom: 18px;
-      box-shadow: 0 5px 22px #a68dfc30;
-      display: block;
+    .gxd-navbar {
+      background: #fff;
+      border-bottom:1px solid #eee3fa;
+      box-shadow: 0 2px 12px #a381bc12;
     }
-    .course-title {
-      font-size: 1.28rem;
-      font-weight: 900;
-      color: #7b22b3;
-      letter-spacing: 0.06em;
-      margin-bottom: 7px;
-      margin-top: 6px;
+    .gxd-navbar .navbar-brand {
+      font-weight: 800;
+      font-size: 1.8rem;
+      color: #41bfff;
+      letter-spacing: .03em;
     }
-    .expert-by {
-      font-size: 1rem;
-      color: #ff195c;
-      margin-bottom: 9px;
-      font-weight: 700;
-    }
-    .course-detail {
-      font-size: 1.07rem;
-      color: #6a488b;
-      margin-bottom: 13px;
-    }
-    .course-meta {
-      background: #fae8ff;
-      border-radius: 13px;
-      color: #7b22b3;
-      font-size: 0.99rem;
+    .gxd-navbar .nav-link {
+      color: #7542da;
       font-weight: 600;
-      padding: 5px 13px;
-      margin-bottom: 15px;
-      display: inline-block;
+      font-size: 1.08rem;
+      margin-right: 22px;
+      transition: color 0.13s;
     }
-    .price-big {
-      font-size: 2.1rem; font-weight: 900; color: #ee2d53; letter-spacing: 0.11em; margin-bottom:22px;
-      margin-top: 9px;
+    .gxd-navbar .nav-link:hover, .gxd-navbar .active {
+      color: #1fcf90 !important;
+      text-decoration: underline;
     }
-    .duration {
-      font-weight: 700;
-      font-size: 0.96rem;
-      color: #7b22b3;
-      margin-bottom: 12px;
+
+    /* Course header box */
+    .course-header-main {
+      margin: 38px auto 34px auto;
+      max-width: 1050px;
+      background: #fff;
+      border-radius: 25px;
+      box-shadow: 0 10px 48px #ddd9f5cc;
+      display: flex;
+      gap: 32px;
+      align-items: stretch;
+      overflow: hidden;
+      border: 1.2px solid #e6e1f7;
     }
-    /* -- Credit Card Area -- */
-    .pay-right {
-      flex: 1.2;
-      padding: 38px 34px 34px 26px;
-      background: linear-gradient(135deg, #eeecff 70%, #e0d4fa 100%);
-      border-radius: 0 16px 16px 0;
-      display: flex; flex-direction: column;
-      justify-content: center;
+    .course-image-box {
+      width: 340px; background:#f6efff; display:flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
     }
-    .card-title-row {
-      display: flex; align-items: center; justify-content: space-between;
-      margin-bottom: 18px;
-    }
-    .section-title {
-      font-size: 1.22rem; font-weight: 900; color:#6036a9; letter-spacing:0.08em;
-    }
-    .card-container {
-      background: linear-gradient(120deg,#3b345f 60%,#3643a2 100%);
-      border-radius: 20px;
-      color: #fff;
-      padding: 20px 28px 22px 28px;
-      box-shadow: 0 6px 22px #7e53d275;
-      margin-bottom: 17px;
-      width: 97%;
-      max-width: 380px;
-      align-self: center;
-      position: relative;
-    }
-    .card-provider {
-      position: absolute; top: 15px; right: 25px;
-      font-size: 1.13rem; color: #fff7;
-      letter-spacing: 0.05em;
-      font-weight: 700;
-      display: flex; align-items: center; gap:5px;
-    }
-    .card-provider .bi { font-size: 1.52rem; color: #ffc107;}
-    .card-num-row {display:flex; gap:11px; font-size:1.38rem; letter-spacing: 0.19em; margin: 23px 0 12px 0;}
-    .input-credit {margin-bottom:13px;}
-    .pay-form label {
-      font-size: 1rem; font-weight: 700; color: #7b22b3; margin-bottom: 6px; display: block;
-    }
-    .pay-form input, .pay-form select {
-      width: 100%; min-width: 0;
-      padding: 10px 12px;
-      border-radius: 8px;
-      border: 1px solid #dbb9fc;
-      margin-bottom: 17px;
-      background: #f7f1fd;
-      color: #381d59;
-      font-size: 1.01rem;
-      font-weight: 500;
-      transition: border-color .19s;
-    }
-    .pay-form input:focus, .pay-form select:focus {
-      border-color: #ee2d53;
-      outline: none;
-      box-shadow: 0 2px 12px #ee2d5333;
+    .course-image-box img {
+      max-width: 96%; margin:24px 0; border-radius: 18px; box-shadow: 0 6px 24px #4e02a633;
+      min-width: 200px;
+      max-height:250px;
       background:#fff;
     }
-    .pay-form input[type="password"] {letter-spacing: 0.21em;}
-    .pay-summary-row {
-      display: flex; align-items: center; justify-content: space-between;
-      font-size: 1.18rem; font-weight: 700; color: #7652a7; margin-bottom: 4px;
+    .header-details {
+      flex: 1; padding: 32px 18px 26px 0; display: flex; flex-direction: column; justify-content: flex-start;
     }
-    .total-row {
-      font-size: 1.42rem; color: #ee2d53; font-weight: 900; margin-top: 16px; margin-bottom:10px;
+    .course-title-row {
+      display: flex; align-items: center; gap:10px; flex-wrap: wrap; margin-bottom:7px;
     }
-    .pay-btn {
-      width: 100%; margin-top: 9px;
-      padding: 17px 0;
-      font-size: 1.22rem;
-      font-weight: 900;
-      background: linear-gradient(90deg, #32bbfb 40%, #458ff7 100%);
+    .course-title-main {
+      font-size: 2.1rem; font-weight: 900; letter-spacing: 0.04em; color: #26204a;
+    }
+    .course-mode {
+      font-size: 1.02rem; font-weight:700; color:#5bbd87; background:#eafff5; border-radius:8px; padding:4px 15px;
+    }
+    .gxd-rating {
+      color:#f4b727; font-size:1.5rem; letter-spacing:0.07em; margin:0 3px;
+    }
+    .gxd-rating-link {
+      color:#3798ff; font-size:1.09rem; text-decoration: underline; margin-left:5px;
+    }
+    .header-summary {
+      color:#8934a5; font-size:1.21rem; margin: 12px 0 15px 0; font-weight:600;
+    }
+    .expert-and-meta {
+      color:#555; font-size:1.04rem; font-weight:700;
+      margin:5px 0 12px 0; display:flex;align-items:center;gap:20px;flex-wrap:wrap;
+    }
+    .course-info-icons {
+      display: flex; gap: 26px; align-items:center; margin-bottom:13px;
+    }
+    .course-info-icons .bi {color:#41bfff;font-size:1.2rem;margin-right:6px;}
+    .start-btn {
+      background: #27b64e;
+      color: #fff; font-size:1.28rem; font-weight:800;
+      border-radius:13px; padding: 13px 48px;
       border: none;
-      color: #fff;
-      border-radius: 16px;
-      box-shadow: 0 8px 28px #32bbfb22;
-      letter-spacing: 0.09em;
-      cursor: pointer; transition: 0.21s;
+      margin-top:15px;
+      margin-bottom:20px;
+      box-shadow:0 6px 18px #27b64e32;
+      letter-spacing:.04em;
+      cursor:pointer;
+      transition: background .15s;
     }
-    .pay-btn:hover {
-      background: linear-gradient(90deg, #458ff7 40%, #32bbfb 100%);
-      color: #fff2fb;
+    .start-btn:hover {background:#13d58e;}
+    /* Overview */
+    .overview-section {
+      max-width: 1040px; background:#fff; border-radius:20px;box-shadow:0 6px 28px #f8f0fa70; margin:32px auto 0 auto; padding:32px 26px;
+      border:1.1px solid #ebdef9;
     }
-    @media (max-width:1020px){.container-payment{flex-direction:column;}}
-    @media (max-width:620px){.container-payment{min-width:0;padding:0 2vw;}.pay-right,.pay-left{border-radius:16px;} .pay-right{padding:22px 2vw;}.pay-left{padding:18px 2vw;}}
+    .overview-header {
+      font-size:1.4rem; font-weight:800; color:#6c18ab; margin-bottom:26px; font-family:'Montserrat',Arial,sans-serif;
+    }
+    .overview-block {margin-bottom:20px; color:#31335c;font-size:1.07rem;line-height:1.7;}
+    .overview-block strong {font-weight:800;}
+    /* FOOTER */
+    .gxd-footer {
+      background: linear-gradient(120deg, #fff 30%, #ece7ff 100%);
+      color: #5f46a2; text-align:center; font-size:.99rem; font-weight:600;
+      border-top:1.3px solid #ae95eb22;
+      margin-top:75px; padding: 40px 16px 38px 16px; box-shadow:0 -2px 44px #eacffd24;
+    }
+    .footer-logo {
+      font-size:1.43rem; font-family:'Orbitron',Arial,sans-serif;font-weight:900; color:#7542da;letter-spacing:.06em;margin-bottom:8px;
+    }
+    .footer-nav a {color:#7542da;margin:0 15px;text-decoration:none;font-weight:800;transition:color .19s;}
+    .footer-nav a:hover {color:#24916d; text-decoration: underline;}
+    .footer-contact {margin-top:17px;color:#33366c;font-size:1rem;}
+    .footer-credits {margin-top:14px;color:#7d78b5;font-size:.98rem;}
+    @media (max-width:900px){.course-header-main{flex-direction: column;}
+      .course-image-box{width:100%;justify-content:center;}
+      .header-details{padding:16px 3vw;}
+     }
+    @media (max-width:600px){.overview-section{padding:16px 2vw;} .course-image-box img{max-width:80vw;}}
   </style>
 </head>
 <body>
-  <div class="container-payment">
-    <!-- LEFT: course details -->
-    <div class="pay-left">
-      <img class="course-img"
-        src="https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=1200"
-        alt="Course Cover" />
-      <div class="course-title"><%= course.name %></div>
-      <div class="expert-by">by <%= course.expert %></div>
-      <div class="price-big">₹<%= course.price %></div>
-      <div class="course-meta"><%= course.initials %></div>
-      <div class="course-detail"><%= course.desc %></div>
+  <!-- Top NAV, use your site's nav structure/links! -->
+  <nav class="navbar gxd-navbar navbar-expand">
+    <div class="container">
+      <a href="/" class="navbar-brand">GuidanceX</a>
+      <div class="navbar-nav flex-row">
+        <a href="/topics" class="nav-link">Courses</a>
+        <a href="/about" class="nav-link">About</a>
+        <a href="/help" class="nav-link">Help</a>
+        <a href="/login" class="nav-link">Log In</a>
+      </div>
     </div>
-    <!-- RIGHT: credit card faux/card, payment fields -->
-    <div class="pay-right">
-      <div class="card-title-row mb-3">
-        <div class="section-title">Credit Card</div>
-        <div style="color:#989dc5; font-size:.95rem; font-weight:600;">Change Payment method</div>
+  </nav>
+
+  <!-- HEADER: Course Details + Start Course Button -->
+  <section class="course-header-main">
+    <div class="course-image-box">
+      <img src="https://source.unsplash.com/featured/?<%= encodeURIComponent(course.name) %>" alt="<%= course.name %>"/>
+    </div>
+    <div class="header-details">
+      <!-- Title/Stars/Meta -->
+      <div class="course-title-row">
+        <span class="course-title-main"><%= course.name %></span>
+        <span class="course-mode">Self-Paced Course</span>
+        <span class="gxd-rating">
+          &#9733; &#9733; &#9733; &#9733; &#9733;
+          <a href="#" class="gxd-rating-link">4.7/5 ratings</a>
+        </span>
       </div>
-      <div class="card-container">
-        <div class="card-provider">
-          mastercard <i class="bi bi-credit-card-2-front-fill"></i>
-        </div>
-        <div style="margin-top:19px; margin-bottom:2px;">
-          <span style="font-weight:700;">NUMBER</span>
-          <div class="card-num-row"><span>****</span><span>5678</span><span>****</span><span>1212</span></div>
-        </div>
-        <div style="display:flex;justify-content:space-between;">
-          <div>
-            <span style="font-size:0.97rem;font-weight:700;opacity:.58;">NAME</span>
-            <div style="letter-spacing:0.06em; font-weight:700;">{Your Name}</div>
-          </div>
-          <div>
-            <span style="font-size:0.97rem;font-weight:700;opacity:.58;">EXPIRE DATE</span>
-            <div style="font-weight:700;">02 / 27</div>
-          </div>
-        </div>
+      <div class="header-summary"><%= course.desc %></div>
+      <div class="expert-and-meta">
+        <span class="expert"><i class="bi bi-person-fill"></i> Taught by <%= course.expert %></span>
+        <span><i class="bi bi-clock"></i> Duration: <% 
+        const match = course.desc.match(/(\d+)\s*days/i); 
+        %><%= match ? match[1] : "Varies" %> days</span>
+        <span><i class="bi bi-currency-rupee"></i> Price: ₹<%= course.price %></span>
       </div>
-      <form class="pay-form" method="POST" action="/payment" aria-label="Payment Form">
-        <label for="email">Email Address</label>
-        <input type="email" id="email" name="email" placeholder="your@email.com" required/>
-        <label for="ccnum">Card Number</label>
-        <input type="text" id="ccnum" name="ccnum" placeholder="1234 5678 9012 3456" maxlength="19" required />
-        <div class="input-credit" style="display:flex;gap:15px;">
-          <div style="flex:1;">
-            <label for="expdate">Expiry</label>
-            <input type="text" id="expdate" name="expdate" placeholder="MM / YY" maxlength="7" required />
-          </div>
-          <div style="flex:1;">
-            <label for="cvc">CVC</label>
-            <input type="password" id="cvc" name="cvc" placeholder="123" maxlength="4" required/>
-          </div>
-        </div>
-        <label for="cardName">Cardholder Name</label>
-        <input type="text" id="cardName" name="cardName" placeholder="Full Name" required />
-        <label for="billingCountry">Billing Country</label>
-        <select id="billingCountry" name="billingCountry" required>
-          <option value="">Country</option>
-          <option value="India">India</option>
-          <option value="USA">USA</option>
-        </select>
-        <input type="text" name="address" placeholder="Address" required/>
-        <!-- Summary block -->
-        <div class="pay-summary-row"><span>Subtotal</span><span>₹<%= course.price %></span></div>
-        <div class="pay-summary-row"><span>GST (18%)</span><span>₹<%= Math.round(course.price*0.18) %></span></div>
-        <div class="pay-summary-row total-row"><span>Total</span><span>₹<%= Math.round(course.price*1.18) %></span></div>
-        <button type="submit" class="pay-btn">PAY NOW</button>
+      <div class="course-info-icons">
+        <span><i class="bi bi-laptop"></i> Online</span>
+        <span><i class="bi bi-award"></i> Certificate</span>
+        <span><i class="bi bi-bar-chart-line"></i> Beginner to Advanced</span>
+      </div>
+      <form method="GET" action="/paymentt/<%= encodeURIComponent(topic) %>/<%= encodeURIComponent(course.name) %>">
+        <button type="submit" class="start-btn">Start Course</button>
       </form>
+      <div style="font-size:.99rem;color:#778;font-weight:600;">460+ learners enrolled</div>
     </div>
-  </div>
+  </section>
+  
+  <!-- Overview/Details -->
+  <section class="overview-section">
+    <div class="overview-header">Course Overview</div>
+    <div class="overview-block"><strong>What is <%= course.name %>?</strong> 
+      <%
+        // Write your own dynamic/AI overview based on subtopic
+        let blurb = "";
+        if (course.name.toLowerCase().includes("marketing")) {
+          blurb = "Master all facets of digital marketing including SEO, content creation, and paid ads for real results.";
+        } else if (course.name.toLowerCase().includes("management")) {
+          blurb = "Learn proven management skills—project, people, or business—and how to apply them globally.";
+        } else if (course.name.toLowerCase().includes("analytics")) {
+          blurb = "Get hands-on with analytics, from data collection to actionable insights for career or business.";
+        } else if (course.name.toLowerCase().includes("stock")) {
+          blurb = "Understand stock trading, investment strategies, and build real financial know-how.";
+        } else if (course.name.toLowerCase().includes("crypto")) {
+          blurb = "Explore the cryptocurrency and DeFi ecosystem, trading, investing, and technology trends.";
+        } else if (course.name.toLowerCase().includes("ui/ux")) {
+          blurb = "Design user interfaces and craft engaging user experience for modern apps and sites.";
+        } else if (course.name.toLowerCase().includes("graphic")) {
+          blurb = "Unleash your creative skills with logo design, branding, and professional graphics.";
+        } else if (course.name.toLowerCase().includes("platform")) {
+          blurb = "Kickstart your freelance journey: from platforms to winning gigs and client management.";
+        } else if (course.name.toLowerCase().includes("film")) {
+          blurb = "From script to editing, explore all aspects of film and short film production.";
+        } else {
+          blurb = "Comprehensive, practice-driven course—get advanced in your subject from first concepts to mastery.";
+        }
+      %>
+      <%= blurb %>
+    </div>
+    <div class="overview-block"><strong>Recommended For:</strong> Students, professionals, or anyone interested in <%= course.name %>. Prior experience is not required. Each lesson is practical and industry-relevant for quick growth.</div>
+    <div class="overview-block"><strong>Features:</strong> Self-paced learning, downloadable resources, quizzes, hands-on activities, expert Q&A, and career support.</div>
+  </section>
+  
+  <footer class="gxd-footer">
+    <div class="footer-logo">GuidanceX Code Platform</div>
+    <div class="footer-nav">
+      <a href="/topics">Our Courses</a>
+      <a href="/about">About Us</a>
+      <a href="/help">Help</a>
+      <a href="/login">Student Login</a>
+      <a href="/contact">Contact</a>
+    </div>
+    <div class="footer-contact">SRMAP Campus, India. &bull; Email: contact@guidancex.com &bull; WhatsApp: +91 80000-12345</div>
+    <div class="footer-credits">Copyright &copy; <%= new Date().getFullYear() %> GuidanceX. Built for growth and digital learning.</div>
+  </footer>
 </body>
 </html>
