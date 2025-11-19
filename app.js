@@ -39,7 +39,7 @@ const topics = [
     ]
   },
   {
-    name: "Personal Growth",
+    name: "Film making",
     desc: "Unlock your creativity and productivity.",
     subtopics: [
       { name: "Time Management", expert: "Abhay S.", initials: "AS", price: "999", desc: "Techniques for effective life balance. 72 days course" },
