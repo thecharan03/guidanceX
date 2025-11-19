@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title><%= course.name %> | GuidanceX</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" rel="stylesheet"/>
+  <style>
+    body { background: #f7f4fd; font-family: 'Montserrat', Arial, sans-serif; color:#130e30; margin:0; }
+    .course-header-main { margin:38px auto 24px auto; max-width:1050px; background:#fff; border-radius:21px; box-shadow:0 6px 28px #ecdffdba; display:flex; gap:32px; overflow:hidden; }
+    .course-image-box { width:340px; background:#f5f0fa; display:flex; align-items:center; justify-content:center; min-width:160px;}
+    .course-image-box img { max-width:93%; margin:22px 0; border-radius: 14px;}
+    .header-details { flex:1; padding:28px 18px 18px 0; }
+    .course-title-row { display:flex; align-items:center; gap:10px; margin-bottom:7px;}
+    .course-title-main { font-size:2.05rem; font-weight:900; color:#5721a7;}
+    .course-mode { font-size:1rem; color:#229869; background:#ddfff5; border-radius:8px; padding:4px 15px; font-weight:700;}
+    .gxd-rating { color:#f4b727; font-size:1.22rem; letter-spacing:0.07em; margin:0 5px;}
+    .gxd-rating-link { color:#3798ff; font-size:1rem; text-decoration: underline;}
+    .header-summary { color:#8328b3; margin:14px 0;}
+    .expert-and-meta { color:#8e34bf; font-size:1.02rem; margin: 10px 0 14px 0;}
+    .start-btn { background:#229869; color:#fff; font-weight:800; border-radius:11px; padding:12px 38px; margin-top:13px; border:none; cursor:pointer;}
+    .start-btn:hover { background:#108861; color:#fff;}
+    .overview-section { max-width: 1040px; background:#fff; border-radius:15px;box-shadow:0 6px 18px #f8f0fa15; margin: 16px auto 0 auto; padding:22px 21px;}
+    .overview-header { font-size:1.23rem;font-weight:800;color:#7a27b3; margin-bottom:18px; }
+    .overview-block { margin-bottom:18px; color:#524685;font-size:1rem;}
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand" style="background:#fff;border-bottom:1px solid #ecdffd;">
+    <div class="container">
+      <a href="/" class="navbar-brand" style="font-weight:800;font-size:1.37rem;color:#41bfff;">GuidanceX</a>
+      <div class="navbar-nav flex-row">
+        <a href="/topics" class="nav-link">Courses</a>
+        <a href="/about" class="nav-link">About</a>
+        <a href="/help" class="nav-link">Help</a>
+        <a href="/login" class="nav-link">Log In</a>
+      </div>
+    </div>
+  </nav>
+  <section class="course-header-main">
+    <div class="course-image-box">
+      <img src="https://source.unsplash.com/featured/?<%= encodeURIComponent(course.name) %>" alt="<%= course.name %>"/>
+    </div>
+    <div class="header-details">
+      <div class="course-title-row">
+        <span class="course-title-main"><%= course.name %></span>
+        <span class="course-mode">Self-Paced Course</span>
+        <span class="gxd-rating">
+          &#9733; &#9733; &#9733; &#9733; &#9733;
+          <a href="#" class="gxd-rating-link">4.7/5 ratings</a>
+        </span>
+      </div>
+      <div class="header-summary"><%= course.desc %></div>
+      <div class="expert-and-meta">
+        <span class="expert"><i class="bi bi-person-fill"></i> Taught by <%= course.expert %></span>
+        <span><i class="bi bi-currency-rupee"></i> Price: ₹<%= course.price %></span>
+      </div>
+      <form method="GET" action="/buy/<%= encodeURIComponent(topic) %>/<%= encodeURIComponent(course.name) %>">
+        <button type="submit" class="start-btn">Start Course</button>
+      </form>
+    </div>
+  </section>
+  <section class="overview-section">
+    <div class="overview-header">Course Overview</div>
+    <div class="overview-block"><strong>What is <%= course.name %>?</strong> <%= course.desc %></div>
+    <div class="overview-block"><strong>Features:</strong> Video modules, downloadable notes, quizzes, mentor chat, and completion certificate.</div>
+    <div class="overview-block"><strong>Who Should Join:</strong> Students, beginners, and professionals interested in <%= course.name %>.</div>
+  </section>
+</body>
+</html>
