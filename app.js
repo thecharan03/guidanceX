@@ -223,6 +223,58 @@ app.get("/buy/:topic/:subtopic", (req, res) => {
   // finds course and renders payment.ejs with correct details
 });
 
+app.get("/details/:topic/:subtopic", (req, res) => {
+  const topicName = req.params.topic.toLowerCase();
+  const subName = req.params.subtopic.toLowerCase();
+
+  // Find topic
+  const topicObj = topics.find(t => t.name.toLowerCase() === topicName);
+  if (!topicObj) return res.send("Topic not found");
+
+  // Find course / subtopic
+  const course = topicObj.subtopics.find(s => s.name.toLowerCase() === subName);
+  if (!course) return res.send("Course not found");
+
+  // Render details page
+  res.render("details", {
+    topic: topicObj.name,
+    course
+  });
+});
+
+
+// ⭐ ROUTE : Show subtopics page
+app.get("/subtopics/:topic", (req, res) => {
+  const selected = req.params.topic.toLowerCase();
+
+  const topicObj = topics.find(
+    t => t.name.toLowerCase() === selected
+  );
+
+  if (!topicObj) return res.send("Topic not found");
+
+  res.render("subtopics", { topic: topicObj });
+});
+
+// ⭐ ROUTE : Show course details page
+app.get("/details/:topic/:subtopic", (req, res) => {
+  const topicName = req.params.topic.toLowerCase();
+  const subName = req.params.subtopic.toLowerCase();
+
+  const topicObj = topics.find(
+    t => t.name.toLowerCase() === topicName
+  );
+
+  if (!topicObj) return res.send("Topic not found");
+
+  const course = topicObj.subtopics.find(
+    c => c.name.toLowerCase() === subName
+  );
+
+  if (!course) return res.send("Course not found");
+
+  res.render("details", { topic: topicObj.name, course });
+});
 
 
 app.listen(PORT, () => console.log(`Server running at http://localhost:${PORT}`));

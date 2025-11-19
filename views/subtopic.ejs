@@ -29,7 +29,7 @@
           <div class="project-expert">by <%= sub.expert %> (<%= sub.initials %>)</div>
           <div class="project-desc"><%= sub.desc %></div>
           <div class="price-tag">₹<%= sub.price %></div>
-          <a href="/deatils/<%= encodeURIComponent(topic) %>/<%= encodeURIComponent(sub.name) %>">
+          <a href="/details/<%= encodeURIComponent(topic) %>/<%= encodeURIComponent(sub.name) %>">
             <button class="project-action" type="button">View Details</button>
           </a>
           <a href="/buy/<%= encodeURIComponent(topic) %>/<%= encodeURIComponent(sub.name) %>">
