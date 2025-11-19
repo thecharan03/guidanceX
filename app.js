@@ -198,5 +198,9 @@ app.get("/buy/:topic/:subtopic", (req, res) => {
   res.render("payment", { course: subtopicObj });
 });
 
+app.get("/buy/:topic/:subtopic", (req, res) => {
+  // finds course and renders payment.ejs with correct details
+});
+
 
 app.listen(PORT, () => console.log(`Server running at http://localhost:${PORT}`));
