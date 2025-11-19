@@ -190,6 +190,13 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
+app.get("/buy/:topic/:subtopic", (req, res) => {
+  const topicObj = topics.find(t => t.name.toLowerCase() === req.params.topic.toLowerCase());
+  if (!topicObj) return res.send("Topic not found");
+  const subtopicObj = topicObj.subtopics.find(s => s.name.toLowerCase() === req.params.subtopic.toLowerCase());
+  if (!subtopicObj) return res.send("Subtopic not found");
+  res.render("payment", { course: subtopicObj });
+});
 
 
 app.listen(PORT, () => console.log(`Server running at http://localhost:${PORT}`));

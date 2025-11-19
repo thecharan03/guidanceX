@@ -55,7 +55,6 @@
     .expert-by {
       font-size: 1rem;
       color: #ff195c;
-      font-family: 'Montserrat', Arial, sans-serif;
       margin-bottom: 9px;
       font-weight: 700;
     }
@@ -177,14 +176,13 @@
     <!-- LEFT: course details -->
     <div class="pay-left">
       <img class="course-img"
-        src="<%= course.image || 'https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=1200' %>"
+        src="https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=1200"
         alt="Course Cover" />
       <div class="course-title"><%= course.name %></div>
-      <div class="expert-by">by <%= course.expertName %></div>
+      <div class="expert-by">by <%= course.expert %></div>
       <div class="price-big">₹<%= course.price %></div>
-      <div class="duration">Duration: <%= course.duration %> days</div>
-      <div class="course-meta">Mode: Online Class</div>
-      <div class="course-detail"><%= course.description %></div>
+      <div class="course-meta"><%= course.initials %></div>
+      <div class="course-detail"><%= course.desc %></div>
     </div>
     <!-- RIGHT: credit card faux/card, payment fields -->
     <div class="pay-right">
@@ -211,8 +209,7 @@
           </div>
         </div>
       </div>
-
-      <form class="pay-form" method="POST" action="/process-payment" aria-label="Payment Form">
+      <form class="pay-form" method="POST" action="/payment" aria-label="Payment Form">
         <label for="email">Email Address</label>
         <input type="email" id="email" name="email" placeholder="your@email.com" required/>
         <label for="ccnum">Card Number</label>
@@ -236,7 +233,6 @@
           <option value="USA">USA</option>
         </select>
         <input type="text" name="address" placeholder="Address" required/>
-
         <!-- Summary block -->
         <div class="pay-summary-row"><span>Subtotal</span><span>₹<%= course.price %></span></div>
         <div class="pay-summary-row"><span>GST (18%)</span><span>₹<%= Math.round(course.price*0.18) %></span></div>
