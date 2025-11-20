@@ -277,4 +277,11 @@ app.get("/details/:topic/:subtopic", (req, res) => {
 });
 
 
+app.use(express.static('public'));
+app.get('/my', (req, res) => {
+  res.render('my'); // renders views/my.ejs
+});
+
+
+
 app.listen(PORT, () => console.log(`Server running at http://localhost:${PORT}`));
