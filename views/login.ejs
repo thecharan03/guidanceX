@@ -1,138 +1,367 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <title>Login | GuidanceX</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=SF+Pro+Text:wght@400;600&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
-    body, html {
-      margin: 0;
-      height: 100%;
-      background: #1c1c1e;
-      font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #f5f5f7;
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
     }
 
-    .login-container {
-      background: #2b2b2e;
-      border-radius: 30px;
-      box-shadow: 0 12px 36px rgb(0 0 0 / 0.5);
-      width: 380px;
-      max-width: 90vw;
-      padding: 45px 35px 45px 35px;
-      box-sizing: border-box;
-      text-align: center;
+    body,html{
+      height:100%;
+      font-family:'Poppins',system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      background:#c3d9ff;
+      display:flex;
+      align-items:center;
+      justify-content:center;
     }
 
-    h2 {
-      font-weight: 700;
-      font-size: 2.4rem;
-      margin-bottom: 30px;
-      letter-spacing: 0.025em;
-      color: #f5f5f7;
+    .page-wrap{
+      width:100%;
+      max-width:1100px;
+      height:620px;
+      background:#c3d9ff;
+      border-radius:32px;
+      position:relative;
+      overflow:hidden;
+      display:grid;
+      grid-template-columns:1.1fr 1.2fr;
+      box-shadow:0 20px 60px rgba(0,0,0,.2);
     }
 
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 22px;
+    /* background circles */
+    .bg-circle{
+      position:absolute;
+      border-radius:50%;
+      border:4px solid rgba(255,255,255,.55);
+    }
+    .bg-circle.small{
+      width:38px;height:38px;
+      border-width:3px;
+    }
+    .bg-circle.big{
+      width:68px;height:68px;
+    }
+    .bg-circle.fill{
+      background:rgba(255,255,255,.4);
+      border:none;
+    }
+    .c1{top:26px;left:60px;}
+    .c2{top:80px;right:120px;}
+    .c3{bottom:60px;left:140px;}
+    .c4{bottom:24px;right:60px;}
+    .c5{top:220px;left:290px;}
+    .c6{top:130px;right:260px;}
+
+    /* LEFT LOGIN CARD */
+    .login-side{
+      position:relative;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding-left:40px;
+      z-index:2;
     }
 
-    input {
-      height: 44px;
-      font-size: 1.15rem;
-      font-weight: 500;
-      padding: 0 18px;
-      border-radius: 12px;
-      border: 1.5px solid #444;
-      background: #3a3a3d;
-      color: #e0e0e0;
-      box-sizing: border-box;
-      transition: border-color 0.3s ease;
-      outline-offset: 2px;
+    .login-card{
+      width:340px;
+      background:#e4efff;
+      border-radius:28px;
+      padding:32px 30px 28px;
+      box-shadow:0 16px 28px rgba(23,74,150,.25);
     }
 
-    input::placeholder {
-      color: #a2a2a8;
+    .login-card h2{
+      font-size:26px;
+      font-weight:700;
+      color:#264077;
+      text-align:left;
+      margin-bottom:26px;
     }
 
-    input:focus {
-      border-color: #609dfa;
-      box-shadow: 0 0 12px #609dfa88;
-      background: #3f3f43;
-      outline: none;
+    form{
+      display:flex;
+      flex-direction:column;
+      gap:14px;
     }
 
-    button {
-      margin-top: 10px;
-      border: none;
-      border-radius: 13px;
-      padding: 13px 0;
-      font-weight: 700;
-      font-size: 1.3rem;
-      color: white;
-      background: linear-gradient(90deg, #0a84ff, #5ac8fa);
-      cursor: pointer;
-      transition: background 0.3s ease;
-      box-shadow: 0 6px 16px -2px rgb(10 133 255 / 0.6);
+    .field{
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+      text-align:left;
+      font-size:13px;
+      color:#5b6b8f;
     }
 
-    button:hover {
-      background: linear-gradient(90deg, #0d71e5, #2da1d5);
-      box-shadow: 0 8px 22px -2px rgb(13 113 229 / 0.8);
+    .field input{
+      height:44px;
+      border-radius:10px;
+      border:none;
+      padding:0 14px;
+      font-size:13px;
+      background:#f5f8ff;
+      box-shadow:inset 0 0 0 1px #d1def5;
+      color:#1f2937;
     }
 
-    .error-message {
-      background: #462626;
-      color: #ff6161;
-      padding: 9px 12px;
-      border-radius: 10px;
-      font-weight: 600;
-      margin-bottom: 14px;
+    .field input::placeholder{
+      color:#a0aec7;
     }
 
-    .footer-text {
-      margin-top: 35px;
-      font-size: 0.92rem;
-      color: #6a6a6d;
-      font-weight: 400;
+    .field input:focus{
+      outline:none;
+      box-shadow:0 0 0 2px #3366ff33;
+      background:#ffffff;
     }
 
-    @media (max-width: 440px) {
-      .login-container {
-        width: 95vw;
-        padding: 40px 30px 40px 30px;
+    .login-btn{
+      margin-top:10px;
+      height:46px;
+      border:none;
+      border-radius:10px;
+      background:linear-gradient(90deg,#1d52ff,#0050c8);
+      color:#ffffff;
+      font-weight:600;
+      font-size:15px;
+      cursor:pointer;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+      box-shadow:0 10px 20px rgba(0,76,184,.45);
+    }
+    .login-btn:hover{
+      background:linear-gradient(90deg,#153dd0,#003c9b);
+    }
+
+    .error-message{
+      background:#ffe5e7;
+      color:#d62b45;
+      padding:8px 10px;
+      font-size:12px;
+      border-radius:10px;
+      margin-bottom:12px;
+      text-align:left;
+      box-shadow:0 0 0 1px #f7b2bb;
+    }
+
+    .divider-text{
+      margin:18px 0 10px;
+      font-size:11px;
+      color:#7a8bae;
+      text-align:center;
+    }
+
+    .social-row{
+      display:flex;
+      gap:12px;
+      margin-bottom:20px;
+    }
+    .social-btn{
+      flex:1;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:6px;
+      height:36px;
+      border-radius:20px;
+      border:none;
+      font-size:11px;
+      cursor:pointer;
+      background:#ffffff;
+      color:#4b5563;
+      box-shadow:0 4px 10px rgba(15,23,42,.1);
+    }
+    .social-icon{
+      width:16px;height:16px;
+      border-radius:50%;
+      background:#1877f2;
+    }
+    .google{background:#ffffff;}
+    .google .social-icon{background:#ea4335;}
+
+    .footer-text{
+      font-size:11px;
+      color:#7a8bae;
+      text-align:center;
+    }
+    .footer-text a{
+      color:#ffb300;
+      text-decoration:none;
+      font-weight:600;
+    }
+
+    /* RIGHT ILLUSTRATION AREA */
+    .art-side{
+      position:relative;
+      overflow:hidden;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .big-ring{
+      position:absolute;
+      width:520px;
+      height:520px;
+      border-radius:50%;
+      background:#4b7cff;
+      right:-80px;
+      top:50%;
+      transform:translateY(-50%);
+    }
+    .big-ring::before{
+      content:"";
+      position:absolute;
+      inset:40px;
+      border-radius:50%;
+      background:#1c51e6;
+    }
+
+    /* simple flat flower illustration */
+    .plant{
+      position:absolute;
+      right:70px;
+      top:50%;
+      transform:translateY(-50%);
+      width:260px;
+      height:220px;
+    }
+    .leaf{
+      position:absolute;
+      border-radius:140px 140px 0 0;
+      background:#1a936f;
+    }
+    .leaf.l1{width:80px;height:150px;left:40px;bottom:0;transform:rotate(-10deg);}
+    .leaf.l2{width:70px;height:135px;left:115px;bottom:0;transform:rotate(8deg);background:#2364aa;}
+    .leaf.l3{width:90px;height:120px;left:165px;bottom:0;transform:rotate(22deg);background:#f39c6b;}
+
+    .stem{
+      position:absolute;
+      width:18px;height:110px;
+      border-radius:40px;
+      background:#f4b41a;
+      bottom:35px;
+    }
+    .stem.s1{left:30px;transform:rotate(-18deg);}
+    .stem.s2{left:120px;transform:rotate(6deg);}
+    .stem.s3{left:190px;transform:rotate(18deg);}
+
+    .flower{
+      position:absolute;
+      width:34px;height:34px;
+      border-radius:50%;
+      background:#ffb9d3;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:16px;
+      color:#f97373;
+    }
+    .flower.f1{left:18px;top:45px;}
+    .flower.f2{left:190px;top:40px;}
+    .flower.f3{left:125px;top:10px;}
+
+    .base-pill{
+      position:absolute;
+      height:40px;
+      border-radius:999px;
+      background:#fcb8b8;
+      bottom:0;
+    }
+    .base1{width:130px;left:40px;background:#ffb7c5;}
+    .base2{width:90px;left:140px;background:#f29fa2;}
+    .base3{width:60px;left:195px;background:#f6d1ff;}
+
+    @media (max-width:900px){
+      .page-wrap{
+        height:auto;
+        max-width:420px;
+        grid-template-columns:1fr;
+        padding:30px 0;
       }
-      h2 {
-        font-size: 2rem;
-      }
-      button {
-        font-size: 1.15rem;
+      .art-side{display:none;}
+      .login-side{
+        padding:0;
+        justify-content:center;
       }
     }
   </style>
 </head>
 <body>
-  <div class="login-container">
-    <h2>Welcome Back</h2>
-    <% if(error) { %>
-      <div class="error-message"><%= error %></div>
-    <% } %>
-    <form action="/login" method="POST" novalidate>
-      <input type="text" name="username" placeholder="Username" required autofocus autocomplete="username" />
-      <input type="password" name="password" placeholder="Password" required autocomplete="current-password" />
-      <button type="submit">Sign In</button>
-    </form>
-    <div class="footer-text">
-      Forgot your password? Contact support.
+  <div class="page-wrap">
+    <!-- decorative circles -->
+    <span class="bg-circle small c1"></span>
+    <span class="bg-circle big c2"></span>
+    <span class="bg-circle big fill c3"></span>
+    <span class="bg-circle small c4"></span>
+    <span class="bg-circle small fill c5"></span>
+    <span class="bg-circle small c6"></span>
+
+    <!-- LEFT LOGIN -->
+    <div class="login-side">
+      <div class="login-card">
+        <h2>Login Now</h2>
+
+        <% if(error) { %>
+          <div class="error-message"><%= error %></div>
+        <% } %>
+
+        <form action="/login" method="POST" novalidate>
+          <div class="field">
+            <label>Email or Username</label>
+            <input type="text" name="username" placeholder="Email or Username" required autocomplete="username" />
+          </div>
+          <div class="field">
+            <label>Password</label>
+            <input type="password" name="password" placeholder="Password" required autocomplete="current-password" />
+          </div>
+          <button type="submit" class="login-btn">LOGIN</button>
+
+          <div class="divider-text">Or login with</div>
+          <div class="social-row">
+            <button type="button" class="social-btn fb">
+              <span class="social-icon"></span>
+              Facebook
+            </button>
+            <button type="button" class="social-btn google">
+              <span class="social-icon"></span>
+              Google
+            </button>
+          </div>
+        </form>
+
+        <p class="footer-text">
+          Not a member? <a href="#">Sign up now</a>
+        </p>
+      </div>
+    </div>
+
+    <!-- RIGHT ILLUSTRATION -->
+    <div class="art-side">
+      <div class="big-ring"></div>
+      <div class="plant">
+        <div class="leaf l1"></div>
+        <div class="leaf l2"></div>
+        <div class="leaf l3"></div>
+
+        <div class="stem s1"></div>
+        <div class="stem s2"></div>
+        <div class="stem s3"></div>
+
+        <div class="flower f1">✿</div>
+        <div class="flower f2">✿</div>
+        <div class="flower f3">✿</div>
+
+        <div class="base-pill base1"></div>
+        <div class="base-pill base2"></div>
+        <div class="base-pill base3"></div>
+      </div>
     </div>
   </div>
 </body>
