@@ -228,6 +228,84 @@
   }
 }
 
+
+
+
+
+
+
+
+
+
+
+.gx-mini-footer{
+  width:100%;
+  background:#060608;
+  border-top:1px solid #232326;
+  padding:12px 32px;
+  font-family:'Montserrat','Segoe UI',sans-serif;
+  font-size:0.8rem;
+  color:#9d9daa;
+}
+
+.gx-mini-inner{
+  max-width:1180px;
+  margin:0 auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:14px;
+  flex-wrap:wrap;
+}
+
+.gx-mini-main{
+  white-space:nowrap;
+}
+
+.gx-mini-groups{
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px 26px;
+}
+
+.gx-mini-group{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:6px;
+}
+
+.gx-mini-group strong{
+  color:#d4d4dd;
+  font-weight:600;
+}
+
+.gx-mini-group a{
+  color:#b7b7c3;
+  text-decoration:none;
+  position:relative;
+  padding-left:8px;
+}
+
+.gx-mini-group a::before{
+  content:"•";
+  position:absolute;
+  left:0;
+  color:#555561;
+  font-size:0.7rem;
+  top:0;
+}
+
+.gx-mini-group a:hover{
+  color:#ff7700;
+}
+
+@media (max-width:700px){
+  .gx-mini-inner{
+    align-items:flex-start;
+  }
+}
+
   </style>
 </head>
 <body>
@@ -271,20 +349,42 @@
 
 
 
-  <footer class="gx-mini-footer">
+   <footer class="gx-mini-footer">
   <div class="gx-mini-inner">
-    <span>© <span id="gx-year"></span> GuidanceX. All rights reserved.</span>
-    <span class="gx-mini-links">
-      <a href="#">Privacy Policy</a>
-      <a href="#">Terms of Service</a>
-      <a href="#">Cookie Policy</a>
+    <span class="gx-mini-main">
+      © <span id="gx-year"></span> GuidanceX. All rights reserved.
     </span>
+
+    <div class="gx-mini-groups">
+      <span class="gx-mini-group">
+        <strong>Legal:</strong>
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Cookie Policy</a>
+        <a href="#">Refund Policy</a>
+      </span>
+
+      <span class="gx-mini-group">
+        <strong>Platform:</strong>
+        <a href="#">Status</a>
+        <a href="#">Security</a>
+        <a href="#">Accessibility</a>
+      </span>
+
+      <span class="gx-mini-group">
+        <strong>Company:</strong>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+        <a href="#">Careers</a>
+      </span>
+    </div>
   </div>
 </footer>
 
 <script>
   document.getElementById('gx-year').textContent = new Date().getFullYear();
 </script>
+
 
 </body>
 </html>
